@@ -1,7 +1,7 @@
 name: "Glittering Bank API"
-version: "1.0.2"
+version: "1.1.0"
 slug: "glittering_bank_api"
-description: "API ASP.NET Core générant des données bancaires fictives pour Glittering Prizes"
+description: "API bancaire fictive persistante avec SQLite et authentification biométrique"
 url: "https://github.com/philfer/glitteringprizes-ha"
 arch:
   - aarch64
@@ -18,5 +18,7 @@ webui: "http://[HOST]:[PORT:5080]/health"
 watchdog: "http://[HOST]:[PORT:5080]/health"
 options:
   api_key: null
+  activation_code: null
 schema:
   api_key: password
+  activation_code: password
