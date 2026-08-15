@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+- Correction de l'erreur 500 pendant la première activation biométrique.
+- Validation des expirations des flux WebAuthn et des sessions côté .NET pour assurer la compatibilité SQLite.
+- Image privée AMD64 et ARM64 construite et publiée avec succès.
+
 ## 1.1.1
 
 - Correction de la configuration FIDO2 empêchant la compilation de l'image 1.1.0.
