@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2
+
+- Correction de l’import CSV dans l’image Alpine Home Assistant en mode de globalisation invariant.
+- Analyse des dates et montants français sans dépendance à la locale `fr-FR`.
+- Tests .NET et SQLite exécutés en CI dans le même mode de globalisation que le module.
+- Création automatique des comptes absents lors de l’import et restitution détaillée des erreurs, introduites en 1.3.1.
+
 ## 1.2.1
 
 - Prise en charge des exports CSV utilisant la tabulation comme séparateur.
