@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1
+
+- Prise en charge des exports CSV utilisant la tabulation comme séparateur.
+- Reconnaissance des colonnes Nom du compte, Nom de la connexion et N° de chèque.
+- Association des comptes par leur nom ou leur suffixe x1234.
+- Utilisation de Labels comme catégorie de secours.
+
+
 ## 1.2.0
 
 - Ajout de l’administration des transactions.
