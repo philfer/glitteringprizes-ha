@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0
+
+- Base SQLite persistante dans `/data/glittering-bank.db`.
+- Données fictives pour utilisateurs, profils, banques, comptes, transactions et budgets.
+- Authentification biométrique par passkey WebAuthn.
+- Code d'activation initial à usage unique pour le profil Philippe.
+- Sessions sécurisées, challenges temporaires et journal d'audit.
+- Montants stockés en centimes pour éviter les erreurs d'arrondi.
+
 ## 1.0.2
 
 - Publication sous forme d'image Docker privée multiarchitecture.
