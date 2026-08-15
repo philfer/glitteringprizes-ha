@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0
+
+- Ajout de l’administration des transactions.
+- Import CSV cumulatif avec détection des nouvelles opérations sans doublon.
+- Validation atomique des fichiers et prise en charge des comptes multiples.
+- Suppression globale des transactions avec confirmation et journal d’audit.
+- Correction du calcul du budget mensuel sur le stock complet des transactions.
+
 ## 1.1.2
 
 - Correction de l'erreur 500 pendant la première activation biométrique.
@@ -11,7 +19,6 @@
 - Correction de la configuration FIDO2 empêchant la compilation de l'image 1.1.0.
 - Publication vérifiée de l'image privée AMD64 et ARM64.
 - Le backend peut démarrer avant la configuration du code d'activation.
-
 
 ## 1.1.0
 
