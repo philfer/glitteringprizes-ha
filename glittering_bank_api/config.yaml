@@ -1,5 +1,5 @@
 name: "Glittering Bank API"
-version: "1.1.0"
+version: "1.1.1"
 slug: "glittering_bank_api"
 description: "API bancaire fictive persistante avec SQLite et authentification biométrique"
 url: "https://github.com/philfer/glitteringprizes-ha"
@@ -18,7 +18,7 @@ webui: "http://[HOST]:[PORT:5080]/health"
 watchdog: "http://[HOST]:[PORT:5080]/health"
 options:
   api_key: null
-  activation_code: null
+  activation_code: ""
 schema:
   api_key: password
-  activation_code: password
+  activation_code: password?
