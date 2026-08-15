@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1
+
+- Correction de la configuration FIDO2 empêchant la compilation de l'image 1.1.0.
+- Publication vérifiée de l'image privée AMD64 et ARM64.
+- Le backend peut démarrer avant la configuration du code d'activation.
+
+
 ## 1.1.0
 
 - Base SQLite persistante dans `/data/glittering-bank.db`.
