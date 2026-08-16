@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.0
+
+- Axe des ordonnées gradué en euros dans l’analyse mensuelle.
+- Sélection interactive d’un jour sur les courbes.
+- Comparaison du solde de toutes les séries au jour sélectionné.
+
 ## 1.8.0
 
 - Nouvelle vue d’analyse mensuelle dans le détail des comptes.
