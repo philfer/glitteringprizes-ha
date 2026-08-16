@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0
+
+- Historique du solde de chaque compte depuis son solde initial.
+- Écran de détail avec graphique responsive et transactions associées.
+- Recherche par libellé, débit ou crédit, plage de dates et sélection de comptes.
+- API sécurisées limitant chaque utilisateur aux comptes dont il est propriétaire.
+
 ## 1.4.0
 
 - Calcul de chaque solde courant à partir du solde initial et des opérations importées.
