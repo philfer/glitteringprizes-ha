@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0
+
+- Correction de la version installée affichée par l’écran d’administration.
+- Transmission explicite de la version Home Assistant au backend .NET.
+- Ajout du tag Git automatique à chaque publication du catalogue.
+
+
 ## 1.5.0
 
 - Historique du solde de chaque compte depuis son solde initial.
