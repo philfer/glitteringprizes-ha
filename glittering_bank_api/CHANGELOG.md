@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.0
+
+- Nouvelle vue d’analyse mensuelle dans le détail des comptes.
+- Comparaison jour par jour du solde sur deux à douze mois.
+- Report du dernier solde connu sur les journées sans opération.
+
 ## 1.7.0
 
 - Fiche détaillée au clic sur chaque opération bancaire.
