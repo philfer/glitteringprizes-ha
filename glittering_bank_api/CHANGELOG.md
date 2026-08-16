@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+- Fiche détaillée au clic sur chaque opération bancaire.
+- Affichage des opérations semblables avec score et raison de correspondance.
+- Algorithme hybride tolérant les abréviations, fautes et libellés bancaires bruités.
+
 ## 1.6.0
 
 - Correction de la version installée affichée par l’écran d’administration.
