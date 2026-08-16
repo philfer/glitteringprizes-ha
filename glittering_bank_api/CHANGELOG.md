@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0
+
+- Calcul de chaque solde courant à partir du solde initial et des opérations importées.
+- Ajout d’un menu administrateur pour définir le solde initial de chaque compte.
+- Conservation des soldes initiaux lors de la suppression globale des transactions.
+- Tests SQLite du calcul, de la persistance et des autorisations.
+
 ## 1.3.2
 
 - Correction de l’import CSV dans l’image Alpine Home Assistant en mode de globalisation invariant.
