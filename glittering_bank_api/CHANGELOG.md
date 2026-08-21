@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0
+
+- Attribution automatique d’une icône adaptée à la catégorie de chaque opération.
+- Nouvel écran permanent des dépenses mensuelles par catégorie avec graphique camembert interactif.
+- Sélection d’un mois et consultation des opérations composant chaque catégorie.
+- Date mise en évidence dans la liste des opérations similaires.
+
 ## 1.9.0
 
 - Axe des ordonnées gradué en euros dans l’analyse mensuelle.
