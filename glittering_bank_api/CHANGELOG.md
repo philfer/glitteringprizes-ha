@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.0
+
+- Affichage des comptes sous forme de tableau dans la vue d’ensemble.
+- Liste de comptes dans les filtres de recherche.
+- Administration de la visibilité des comptes.
+- Exclusion des comptes masqués du tableau de bord, des recherches et de leur détail.
+- Migration automatique des installations SQLite existantes.
+
 ## 2.0.0
 
 - Attribution automatique d’une icône adaptée à la catégorie de chaque opération.
