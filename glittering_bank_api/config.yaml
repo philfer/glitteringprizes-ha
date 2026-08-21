@@ -1,5 +1,5 @@
 name: "Glittering Bank API"
-version: "1.9.0"
+version: "2.0.0"
 slug: "glittering_bank_api"
 description: "API bancaire fictive persistante avec SQLite et authentification biométrique"
 url: "https://github.com/philfer/glitteringprizes-ha"
