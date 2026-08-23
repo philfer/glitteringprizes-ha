@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0
+
+- Affichage du solde après chaque opération dans l’historique d’un compte.
+- Montant présenté de façon compacte en petit, gris et italique.
+- Calcul chronologique fiable à partir du solde initial.
+
 ## 2.1.0
 
 - Affichage des comptes sous forme de tableau dans la vue d’ensemble.
