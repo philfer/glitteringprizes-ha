@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.5.0
+
+- Total cumulé affiché dans l’en-tête des opérations semblables.
+- Somme signée des débits et crédits, indépendante du tri.
+- Affichage adapté aux écrans mobiles.
+
 ## 2.4.0
 
 - Opérations semblables triées par défaut de la plus récente à la plus ancienne.
