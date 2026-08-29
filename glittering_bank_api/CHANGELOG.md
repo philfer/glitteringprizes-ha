@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.4.0
+
+- Opérations semblables triées par défaut de la plus récente à la plus ancienne.
+- Tris disponibles par date, montant absolu, libellé et score de similarité.
+
 ## 2.3.0
 
 - Interface mobile fluide sans défilement horizontal global.
