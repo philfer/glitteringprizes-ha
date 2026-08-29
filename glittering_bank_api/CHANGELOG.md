@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+
+- Interface mobile fluide sans défilement horizontal global.
+- Menu burger déplacé en haut à gauche avec tiroir latéral.
+- Tableaux, graphiques et administration compactés pour les petits écrans.
+
 ## 2.2.1
 
 - Correction du sélecteur de fichiers sur mobile pour permettre l’accès aux documents CSV.
