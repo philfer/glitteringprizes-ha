@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.1
+
+- Correction du sélecteur de fichiers sur mobile pour permettre l’accès aux documents CSV.
+- Validation de l’extension `.csv` et limite de 10 Mo conservées.
+
 ## 2.2.0
 
 - Affichage du solde après chaque opération dans l’historique d’un compte.
