@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.5.1
+
+- Correction du tableau de bord lorsqu’aucun budget n’existe pour le mois courant.
+- Réutilisation automatique de la dernière limite connue, ou zéro si aucun budget n’existe.
+- Valeurs d’authentification initiales sécurisées pour les nouvelles installations.
+
 ## 2.5.0
 
 - Total cumulé affiché dans l’en-tête des opérations semblables.
