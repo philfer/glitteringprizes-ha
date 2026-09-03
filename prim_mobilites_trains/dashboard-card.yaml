@@ -1,0 +1,15 @@
+type: markdown
+title: "🚆 Villeneuve-le-Roi → Paris"
+content: >-
+  {% set trains = state_attr('sensor.rer_c_villeneuve_le_roi_paris', 'trains') or [] %}
+  {% if states('sensor.prim_mobilites_villeneuve_le_roi_status') == 'error' %}
+  ⚠️ **PRIM indisponible** — {{ state_attr('sensor.prim_mobilites_villeneuve_le_roi_status', 'message') or 'erreur inconnue' }}
+  {% elif trains | count == 0 %}
+  Aucun prochain RER C vers Paris n'est actuellement remonté par PRIM.
+  {% else %}
+  {% for t in trains %}
+  **{{ t.time }}** · {{ t.destination }}  
+  {% if t.status == 'cancelled' %}🔴 **Supprimé**{% elif (t.delay_minutes or 0) > 0 %}🟠 +{{ t.delay_minutes }} min{% else %}🟢 À l'heure{% endif %}{% if t.platform %} · voie {{ t.platform }}{% endif %} · dans {{ t.minutes }} min
+
+  {% endfor %}
+  {% endif %}
