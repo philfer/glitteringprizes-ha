@@ -1,0 +1,29 @@
+name: "PRIM Mobilités - Villeneuve-le-Roi"
+version: "0.1.0"
+slug: "prim_villeneuve_le_roi"
+description: >-
+  Publie dans Home Assistant les prochains RER C au départ de Villeneuve-le-Roi vers Paris via l'API PRIM Île-de-France Mobilités.
+url: "https://github.com/philfer/glitteringprizes-ha"
+init: false
+startup: application
+boot: auto
+arch:
+  - aarch64
+  - amd64
+homeassistant_api: true
+options:
+  api_key: null
+  refresh_seconds: 60
+  max_trains: 5
+  destination_keywords:
+    - "VERSAILLES"
+    - "INVALIDES"
+    - "SAINT-QUENTIN"
+    - "PONTOISE"
+    - "PARIS AUSTERLITZ"
+schema:
+  api_key: password
+  refresh_seconds: "int(60,300)"
+  max_trains: "int(1,10)"
+  destination_keywords:
+    - str
