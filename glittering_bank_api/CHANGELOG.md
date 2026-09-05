@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.6.0
+
+- Frontend désormais installable comme une application mobile PWA.
+- Icônes Android et iOS, lancement autonome et interface disponible hors connexion.
+- Les API et les données bancaires restent exclues du cache hors ligne.
+
 ## 2.5.1
 
 - Correction du tableau de bord lorsqu’aucun budget n’existe pour le mois courant.
