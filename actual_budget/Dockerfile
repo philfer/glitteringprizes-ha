@@ -1,0 +1,7 @@
+FROM actualbudget/actual-server:latest-alpine
+
+ENV ACTUAL_DATA_DIR=/data
+ENV ACTUAL_PORT=5006
+ENV ACTUAL_HOSTNAME=0.0.0.0
+
+EXPOSE 5006
