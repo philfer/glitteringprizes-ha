@@ -1,5 +1,5 @@
 name: "Glittering Bank API"
-version: "2.7.3"
+version: "2.7.4"
 slug: "glittering_bank_api"
 description: "API bancaire persistante avec SQLite, biométrie et synchronisation Actual Budget"
 url: "https://github.com/philfer/glitteringprizes-ha"
@@ -20,7 +20,7 @@ options:
   api_key: null
   activation_code: ""
   actual_enabled: false
-  actual_server_url: "http://gpt_actual_budget:5006"
+  actual_server_url: "http://172.30.32.1:5006"
   actual_password: ""
   actual_sync_id: ""
   actual_encryption_password: ""
