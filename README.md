@@ -1,8 +1,14 @@
 # Glittering Prizes — Home Assistant
 
-Dépôt public de métadonnées pour l'application Home Assistant **Glittering Bank API**.
+Dépôt Home Assistant de Philippe.
 
-Le code source et l'image Docker sont privés. Ce dépôt ne contient aucun secret, aucune DLL et aucune donnée bancaire.
+## Apps disponibles
+
+### Glittering Bank API
+Backend bancaire utilisé par GlitteringPrizes.
+
+### Actual Budget
+Instance Actual Budget auto-hébergée dans Home Assistant, avec données persistantes dans `/data` et accès via Home Assistant Ingress.
 
 ## Installation
 
@@ -10,4 +16,8 @@ Ajoutez ce dépôt dans la boutique des applications Home Assistant :
 
 `https://github.com/philfer/glitteringprizes-ha`
 
-L'accès au registre privé `ghcr.io` doit être configuré dans Home Assistant avant l'installation.
+Puis rechargez la boutique. Les Apps disponibles apparaîtront dans ce dépôt.
+
+## Sécurité
+
+Ce dépôt ne contient aucun identifiant bancaire ni secret utilisateur. Actual Budget est configuré sans port réseau publié directement ; son interface passe par Home Assistant Ingress.
