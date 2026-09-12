@@ -1,5 +1,5 @@
 name: "Actual Budget"
-version: "1.0.0"
+version: "1.0.1"
 slug: "gpt_actual_budget"
 description: "Actual Budget auto-hébergé dans Home Assistant"
 url: "https://actualbudget.org/"
@@ -10,12 +10,12 @@ arch:
 startup: application
 boot: auto
 init: false
-ingress: true
-ingress_port: 5006
-ingress_entry: /
+ports:
+  5006/tcp: 5006
+ports_description:
+  5006/tcp: "Interface web Actual Budget"
+webui: "http://[HOST]:[PORT:5006]"
 panel_icon: mdi:wallet
-panel_title: "Actual Budget"
-panel_admin: true
 backup: cold
 options: {}
 schema: {}
