@@ -1,7 +1,7 @@
 name: "Glittering Bank API"
-version: "2.6.0"
+version: "2.7.0"
 slug: "glittering_bank_api"
-description: "API bancaire fictive persistante avec SQLite et authentification biométrique"
+description: "API bancaire persistante avec SQLite, biométrie et synchronisation Actual Budget"
 url: "https://github.com/philfer/glitteringprizes-ha"
 arch:
   - aarch64
@@ -19,6 +19,22 @@ watchdog: "http://[HOST]:[PORT:5080]/health"
 options:
   api_key: null
   activation_code: ""
+  actual_enabled: false
+  actual_server_url: "http://gpt_actual_budget:5006"
+  actual_password: ""
+  actual_sync_id: ""
+  actual_encryption_password: ""
+  actual_sync_interval_minutes: 60
+  actual_lookback_days: 120
+  actual_run_bank_sync: true
 schema:
   api_key: password
   activation_code: password?
+  actual_enabled: bool
+  actual_server_url: str
+  actual_password: password?
+  actual_sync_id: str?
+  actual_encryption_password: password?
+  actual_sync_interval_minutes: int
+  actual_lookback_days: int
+  actual_run_bank_sync: bool
