@@ -1,5 +1,5 @@
 name: "Actual Budget"
-description: "Actual Budget auto-hébergé dans Home Assistant"
+description: "Actual Budget auto-hébergé dans Home Assistant avec HTTPS"
 url: "https://actualbudget.org/"
 slug: "gpt_actual_budget"
 init: false
@@ -8,13 +8,14 @@ arch:
   - amd64
 startup: application
 boot: auto
-webui: "http://[HOST]:[PORT:5006]"
+webui: "https://[HOST]:[PORT:5006]"
 ports:
   5006/tcp: 5006
 ports_description:
-  5006/tcp: "Interface web Actual Budget"
-image: ghcr.io/actualbudget/actual-server
-version: "26.9.0-alpine"
+  5006/tcp: "Interface web HTTPS Actual Budget"
+map:
+  - ssl:ro
+version: "26.9.1"
 backup: cold
 options: {}
 schema: {}
