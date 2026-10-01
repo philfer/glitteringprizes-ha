@@ -15,6 +15,8 @@
 
 - Dossiers de comptes désormais hiérarchiques avec sous-dossiers.
 - Création, déplacement et affichage de l’arborescence des dossiers.
+- Agrégation des soldes dans l’arborescence.
+- Protection contre les boucles lors du déplacement des dossiers.
 
 ## 2.11.0
 
@@ -28,7 +30,8 @@
 
 ## 2.9.1
 
-- Affichage du montant total des résultats d’une recherche de transactions.
+- Affichage du nombre de résultats d’une recherche de transactions.
+- Affichage de la somme signée des résultats : débits négatifs et crédits positifs.
 
 ## 2.9.0
 
