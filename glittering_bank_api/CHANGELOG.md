@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.12.5
+
+- Diagnostic détaillé du chargement des soldes initiaux pour identifier les erreurs SQLite ou de schéma restantes.
+
 ## 2.12.4
 
 - Durcissement du chargement des soldes initiaux pour SQLite : le tri des comptes est effectué après matérialisation en mémoire.
