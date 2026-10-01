@@ -1,5 +1,128 @@
 # Changelog
 
+## 2.12.2
+
+- Correction de l’administration des comptes pendant la migration de l’organisation des comptes.
+- Conservation des soldes disponibles pendant cette migration.
+- Publication Docker optimisée pour le Raspberry Pi : image `linux/arm64` uniquement, sans build AMD64 ni QEMU.
+
+## 2.12.1
+
+- Correction des détails manquants dans l’historique des synchronisations Actual Budget.
+- Reconstruction d’un aperçu depuis les données importées lorsqu’un snapshot de synchronisation manque.
+
+## 2.12.0
+
+- Dossiers de comptes désormais hiérarchiques avec sous-dossiers.
+- Création, déplacement et affichage de l’arborescence des dossiers.
+
+## 2.11.0
+
+- Ajout des dossiers et des étiquettes pour organiser les comptes.
+- Administration des dossiers/tags et regroupement des comptes dans l’interface.
+
+## 2.10.0
+
+- Ajout d’un libellé personnalisé pour chaque compte.
+- Utilisation de l’alias dans le tableau de bord, les transactions et les autres écrans tout en conservant le nom source.
+
+## 2.9.1
+
+- Affichage du montant total des résultats d’une recherche de transactions.
+
+## 2.9.0
+
+- Association de plusieurs comptes pour les présenter comme un ensemble.
+- Agrégation des comptes associés dans le tableau de bord, les recherches et le détail des comptes.
+- Administration des associations de comptes.
+
+## 2.8.12
+
+- Affichage de l’année dans les dates des résultats de recherche.
+
+## 2.8.11
+
+- Restauration de la version du frontend dans le pied du menu de navigation.
+
+## 2.8.10
+
+- Amélioration de la disposition des actions de recherche sur mobile.
+
+## 2.8.9
+
+- Correction de l’affichage des contrôles de recherche repliés sur mobile.
+
+## 2.8.8
+
+- Correction de la recherche lancée depuis un compte : elle n’est plus exécutée automatiquement avant validation.
+
+## 2.8.7
+
+- Repli automatique du formulaire de recherche après l’affichage des résultats.
+
+## 2.8.6
+
+- Ajout d’un raccourci de recherche des transactions limité à un compte.
+
+## 2.8.5
+
+- Réorganisation de la vue d’ensemble et déplacement de ses fonctions dans la navigation principale.
+
+## 2.8.4
+
+- Le détail d’une transaction affiche désormais son compte et permet d’ouvrir directement ce compte.
+
+## 2.8.3
+
+- Synchronisation bancaire et double authentification déplacées vers des pages dédiées.
+- Navigation d’administration simplifiée.
+
+## 2.8.2
+
+- L’historique Actual Budget affiche par défaut les 10 dernières synchronisations ayant ramené des transactions.
+- Ajout d’un formulaire de recherche, d’un filtre pour les synchronisations vides et du choix du nombre de résultats.
+- Correction de compilation de l’endpoint d’historique.
+
+## 2.8.1
+
+- Enregistrement d’un snapshot des soldes et transactions pour chaque synchronisation Actual Budget réussie.
+- Les entrées d’historique peuvent être ouvertes pour consulter le détail de la synchronisation.
+
+## 2.8.0
+
+- Ajout de la double authentification TOTP après le passkey.
+- Compatibilité avec Google Authenticator et les applications TOTP standards.
+- Administration de l’activation et de la désactivation du TOTP.
+
+## 2.7.5
+
+- Correction d’un tri `DateTimeOffset` incompatible avec SQLite pendant la synchronisation Actual Budget.
+
+## 2.7.4
+
+- Correction de l’initialisation et des permissions du cache local de l’API Actual Budget.
+
+## 2.7.3
+
+- Correction du tri de l’historique des synchronisations pour assurer la compatibilité SQLite.
+
+## 2.7.2
+
+- Ajout du panneau d’administration de la synchronisation Actual Budget.
+- Affichage de l’état et de l’historique des synchronisations et déclenchement manuel.
+- Correction de la lecture des valeurs de configuration Actual vides.
+
+## 2.7.1
+
+- Correction des permissions de lecture de la configuration Home Assistant avant l’abandon des privilèges.
+- Les paramètres Actual Budget sont transmis au backend via l’environnement.
+
+## 2.7.0
+
+- Synchronisation automatique avec Actual Budget et Enable Banking.
+- Import idempotent des comptes, soldes et transactions Actual Budget.
+- Synchronisation périodique configurable et déclenchement de la synchronisation bancaire Actual.
+
 ## 2.6.0
 
 - Frontend désormais installable comme une application mobile PWA.
