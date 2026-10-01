@@ -26,6 +26,13 @@ jobs:
         run: |
           VERSION="$(sed -n 's/^version: *"\([^"]*\)"/\1/p' glittering_bank_api/config.yaml)"
           test -n "$VERSION"
+
+          # A release is invalid if its release notes were forgotten.
+          if ! grep -Fqx "## ${VERSION}" glittering_bank_api/CHANGELOG.md; then
+            echo "::error::CHANGELOG.md must contain a '## ${VERSION}' section before publishing."
+            exit 1
+          fi
+
           TAG="v${VERSION}"
           if git rev-parse "refs/tags/${TAG}" >/dev/null 2>&1; then
             echo "${TAG} already exists"
