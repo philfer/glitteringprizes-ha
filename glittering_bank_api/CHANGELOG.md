@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.3
+
+- Correction du chargement des soldes initiaux dans l’administration des comptes.
+- Les associations de comptes sont désormais chargées avec les autres métadonnées d’organisation et ne peuvent plus faire échouer toute la page pendant une migration SQLite.
+
 ## 2.12.2
 
 - Correction de l’administration des comptes pendant la migration de l’organisation des comptes.
