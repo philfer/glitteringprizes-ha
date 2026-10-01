@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.4
+
+- Durcissement du chargement des soldes initiaux pour SQLite : le tri des comptes est effectué après matérialisation en mémoire.
+- Ajout d’un test de régression SQLite couvrant les transactions avec `DateTimeOffset` dans l’administration des comptes.
+
 ## 2.12.3
 
 - Correction du chargement des soldes initiaux dans l’administration des comptes.
