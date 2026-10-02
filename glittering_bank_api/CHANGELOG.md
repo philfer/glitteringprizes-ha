@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.6
+
+- Affichage dans le détail d’un compte de la date de la dernière synchronisation Actual Budget réussie.
+- Compatibilité SQLite conservée pour la récupération de cette date.
+
 ## 2.12.5
 
 - Diagnostic détaillé du chargement des soldes initiaux pour identifier les erreurs SQLite ou de schéma restantes.
