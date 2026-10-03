@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.12.9
+
+- Historique de synchronisation normalisé : seules les opérations réellement nouvelles ou financièrement modifiées sont enregistrées comme changements.
+- Conservation des anciennes et nouvelles valeurs de montant/date pour les modifications.
+- Migration SQLite additive et non destructive ; les anciens snapshots et tout l’historique existant sont conservés.
+
 ## 2.12.8
 
 - Le détail de synchronisation est limité aux nouvelles opérations et aux changements financiers réels (montant, date ou compte).
