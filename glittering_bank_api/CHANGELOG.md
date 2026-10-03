@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.7
+
+- Le détail d’une synchronisation bancaire affiche uniquement les transactions ajoutées ou modifiées pendant cette synchronisation.
+- Suppression de la reconstruction trompeuse des anciennes synchronisations sans snapshot exact.
+
 ## 2.12.6
 
 - Affichage dans le détail d’un compte de la date de la dernière synchronisation Actual Budget réussie.
