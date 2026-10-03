@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.13.0
+
+- Ajout de la synchronisation individuelle d’un compte Actual Budget / Enable Banking depuis l’écran de synchronisation.
+- Une synchronisation ciblée ne déclenche la récupération bancaire que pour le compte sélectionné.
+
 ## 2.12.9
 
 - Historique de synchronisation normalisé : seules les opérations réellement nouvelles ou financièrement modifiées sont enregistrées comme changements.
