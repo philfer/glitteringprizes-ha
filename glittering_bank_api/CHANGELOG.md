@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.13.2
+
+- La liste de synchronisation individuelle est désormais pilotée directement par Actual Budget.
+- Les comptes reliés à un fournisseur bancaire sont proposés même sans correspondance GlitteringPrizes existante.
+- Les comptes Actual purement manuels sont exclus grâce à `account_sync_source`.
+- La synchronisation individuelle continue de cibler le compte via son identifiant Actual Budget.
+
 ## 2.13.0
 
 - Ajout de la synchronisation individuelle d’un compte Actual Budget / Enable Banking depuis l’écran de synchronisation.
