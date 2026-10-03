@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.12.8
+
+- Le détail de synchronisation est limité aux nouvelles opérations et aux changements financiers réels (montant, date ou compte).
+- Les simples rafraîchissements de libellé, catégorie ou référence ne remplissent plus artificiellement le détail avec plusieurs mois d’opérations.
+
 ## 2.12.7
 
 - Le détail d’une synchronisation bancaire affiche uniquement les transactions ajoutées ou modifiées pendant cette synchronisation.
