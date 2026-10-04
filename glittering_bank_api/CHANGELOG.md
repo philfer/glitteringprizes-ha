@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.4
+
+- Supprime le double slash Ingress et sert l’interface Bourso à la racine sécurisée Home Assistant.
+
+
 ## 2.16.3
 
 - Corrige l’ouverture de l’interface BoursoBank via Home Assistant Ingress et renforce la validation de l’origine Supervisor.
