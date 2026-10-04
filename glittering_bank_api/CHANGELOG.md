@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.14.0
+
+- Ajout du connecteur BoursoBank local et des endpoints REST administrateur pour l’authentification, la validation 2FA et la lecture des comptes.
+- Le service Bourso écoute uniquement sur loopback dans l’image backend.
+
+
 ## 2.13.3
 
 - Correction du module `actual-sync.mjs` sous Node.js : suppression de l'erreur `Illegal return statement` lors du chargement de la liste des comptes Actual Budget.
