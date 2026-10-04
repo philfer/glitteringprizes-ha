@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.15.1
+
+- Durcissement complet du flux BoursoBank : identifiants réservés au chemin local, cookies de banque confinés au connecteur et validation stricte des hôtes BoursoBank.
+
+
 ## 2.14.1
 
 - Administration BoursoBank sécurisée et import des comptes/soldes.
