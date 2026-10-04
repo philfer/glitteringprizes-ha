@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.24
+
+- Corrige la finalisation des lignes d’opérations BoursoBank contenant des éléments HTML vides.
+
+
 ## 2.16.23
 
 - Corrige le parsing structurel des dates, montants et libellés BoursoBank.
