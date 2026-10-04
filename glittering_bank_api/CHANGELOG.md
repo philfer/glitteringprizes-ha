@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.16
+
+- Restaure le diagnostic détaillé des lignes BoursoBank incomplètes.
+
+
 ## 2.16.15
 
 - Ajoute le diagnostic structurel sûr des lignes d’opérations BoursoBank incomplètes.
