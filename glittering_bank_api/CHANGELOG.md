@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.8
+
+- Publie l’image ARM64 GHCR vérifiée contenant le correctif du parseur BoursoBank.
+
+
 ## 2.16.6
 
 - Force une image propre du parseur BoursoBank après l’incohérence observée en 2.16.5.
