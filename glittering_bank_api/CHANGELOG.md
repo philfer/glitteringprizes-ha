@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.6
+
+- Force une image propre du parseur BoursoBank après l’incohérence observée en 2.16.5.
+
+
 ## 2.16.5
 
 - Corrige la lecture des cartes de comptes du nouveau HTML BoursoBank.
