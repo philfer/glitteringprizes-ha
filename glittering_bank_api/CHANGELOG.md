@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.23
+
+- Corrige le parsing structurel des dates, montants et libellés BoursoBank.
+
+
 ## 2.16.22
 
 - Corrige le `NameError` du diagnostic d’historique BoursoBank.
