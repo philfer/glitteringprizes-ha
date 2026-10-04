@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.18
+
+- Ajoute le diagnostic structurel balises/classes pour finaliser le parseur des opérations BoursoBank.
+
+
 ## 2.16.17
 
 - Corrige l’association des dates aux opérations BoursoBank et fiabilise la publication du backend.
