@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.15.2
+
+- Corrige le démarrage du connecteur BoursoBank sécurisé et ajoute un contrôle d’import Python au build.
+
+
 ## 2.15.1
 
 - Durcissement complet du flux BoursoBank : identifiants réservés au chemin local, cookies de banque confinés au connecteur et validation stricte des hôtes BoursoBank.
