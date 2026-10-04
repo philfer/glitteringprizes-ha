@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.2
+
+- Ajoute l’interface locale BoursoBank protégée par Home Assistant Ingress et CSRF ; les identifiants ne transitent pas par Vercel.
+
+
 ## 2.15.2
 
 - Corrige le démarrage du connecteur BoursoBank sécurisé et ajoute un contrôle d’import Python au build.
