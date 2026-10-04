@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.17.0
+
+- Liste les comptes BoursoBank dans l’interface locale Home Assistant.
+- Permet leur association à un compte GlitteringPrizes existant et leur synchronisation individuelle.
+- Ajoute une protection contre les doublons lors de l’import des opérations.
+
+
 ## 2.16.25
 
 - Corrige la reconnaissance des dates françaises des opérations BoursoBank.
