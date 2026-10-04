@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.25
+
+- Corrige la reconnaissance des dates françaises des opérations BoursoBank.
+
+
 ## 2.16.24
 
 - Corrige la finalisation des lignes d’opérations BoursoBank contenant des éléments HTML vides.
