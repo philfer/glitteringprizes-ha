@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.19
+
+- Adapte le parseur à la structure réelle des opérations BoursoBank observée en diagnostic.
+
+
 ## 2.16.18
 
 - Ajoute le diagnostic structurel balises/classes pour finaliser le parseur des opérations BoursoBank.
