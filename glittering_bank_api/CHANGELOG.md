@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.22
+
+- Corrige le `NameError` du diagnostic d’historique BoursoBank.
+
+
 ## 2.16.21
 
 - Ajoute le diagnostic anonymisé des formats nécessaires au parseur BoursoBank.
