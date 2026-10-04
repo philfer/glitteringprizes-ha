@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.13
+
+- Corrige la lecture des séparateurs de dates dans l’historique BoursoBank.
+
+
 ## 2.16.12
 
 - Ajoute le test local en lecture seule du parseur des opérations BoursoBank comptabilisées.
