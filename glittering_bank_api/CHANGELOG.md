@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.5
+
+- Corrige la lecture des cartes de comptes du nouveau HTML BoursoBank.
+
+
 ## 2.16.4
 
 - Supprime le double slash Ingress et sert l’interface Bourso à la racine sécurisée Home Assistant.
