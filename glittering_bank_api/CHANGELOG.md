@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.21
+
+- Ajoute le diagnostic anonymisé des formats nécessaires au parseur BoursoBank.
+
+
 ## 2.16.20
 
 - Corrige la reconnaissance des lignes d’opérations BoursoBank et retire la trace de diagnostic temporaire.
