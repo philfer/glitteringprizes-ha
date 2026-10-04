@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.10
+
+- Étend le diagnostic anonymisé de l’historique BoursoBank pour préparer le parseur des opérations.
+
+
 ## 2.16.9
 
 - Ajoute le diagnostic local sécurisé de la structure d’historique BoursoBank.
