@@ -1,5 +1,5 @@
 name: "Glittering Bank API"
-version: "2.15.2"
+version: "2.16.2"
 slug: "glittering_bank_api"
 description: "API bancaire persistante avec SQLite, passkeys, TOTP et synchronisation Actual Budget"
 url: "https://github.com/philfer/glitteringprizes-ha"
@@ -13,7 +13,10 @@ ports:
   5080/tcp: 5080
 ports_description:
   5080/tcp: "API HTTP locale"
-webui: "http://[HOST]:[PORT:5080]/health"
+ingress: true
+ingress_port: 5080
+panel_icon: "mdi:bank-lock"
+webui: "http://[HOST]:[PORT:5080]/bourso-local"
 watchdog: "http://[HOST]:[PORT:5080]/health"
 options:
   api_key: null
