@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.11
+
+- Complète le diagnostic anonymisé nécessaire au parseur des opérations BoursoBank.
+
+
 ## 2.16.10
 
 - Étend le diagnostic anonymisé de l’historique BoursoBank pour préparer le parseur des opérations.
