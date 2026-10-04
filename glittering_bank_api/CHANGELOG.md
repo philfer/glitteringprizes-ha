@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.3
+
+- Corrige l’ouverture de l’interface BoursoBank via Home Assistant Ingress et renforce la validation de l’origine Supervisor.
+
+
 ## 2.16.2
 
 - Ajoute l’interface locale BoursoBank protégée par Home Assistant Ingress et CSRF ; les identifiants ne transitent pas par Vercel.
