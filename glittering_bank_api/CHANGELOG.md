@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.17
+
+- Corrige l’association des dates aux opérations BoursoBank et fiabilise la publication du backend.
+
+
 ## 2.16.16
 
 - Restaure le diagnostic détaillé des lignes BoursoBank incomplètes.
