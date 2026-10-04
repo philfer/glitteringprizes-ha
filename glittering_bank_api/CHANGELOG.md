@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.20
+
+- Corrige la reconnaissance des lignes d’opérations BoursoBank et retire la trace de diagnostic temporaire.
+
+
 ## 2.16.19
 
 - Adapte le parseur à la structure réelle des opérations BoursoBank observée en diagnostic.
