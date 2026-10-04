@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.13.3
+
+- Correction du module `actual-sync.mjs` sous Node.js : suppression de l'erreur `Illegal return statement` lors du chargement de la liste des comptes Actual Budget.
+
 ## 2.13.2
 
 - La liste de synchronisation individuelle est désormais pilotée directement par Actual Budget.
