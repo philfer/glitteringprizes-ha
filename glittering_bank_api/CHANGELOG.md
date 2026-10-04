@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.12
+
+- Ajoute le test local en lecture seule du parseur des opérations BoursoBank comptabilisées.
+
+
 ## 2.16.11
 
 - Complète le diagnostic anonymisé nécessaire au parseur des opérations BoursoBank.
