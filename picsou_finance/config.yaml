@@ -1,0 +1,19 @@
+name: "Picsou Finance"
+version: "1.0.0"
+slug: "gpt_picsou_finance"
+description: "Picsou Finance auto-hébergé avec BoursoBank (livrets, PEA/CTO) et PostgreSQL intégré"
+url: "https://github.com/Cloeille/picsou-finance"
+arch:
+  - aarch64
+  - amd64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8080
+panel_icon: "mdi:piggy-bank"
+ports:
+  8080/tcp: 8088
+ports_description:
+  8080/tcp: "Interface web Picsou Finance (accès LAN optionnel)"
+backup: cold
