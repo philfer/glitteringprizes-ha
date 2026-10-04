@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.14.1
+
+- Administration BoursoBank sécurisée et import des comptes/soldes.
+
+
 ## 2.14.0
 
 - Ajout du connecteur BoursoBank local et des endpoints REST administrateur pour l’authentification, la validation 2FA et la lecture des comptes.
