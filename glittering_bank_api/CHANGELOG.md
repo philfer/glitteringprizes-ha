@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.16.9
+
+- Ajoute le diagnostic local sécurisé de la structure d’historique BoursoBank.
+
+
 ## 2.16.8
 
 - Publie l’image ARM64 GHCR vérifiée contenant le correctif du parseur BoursoBank.
