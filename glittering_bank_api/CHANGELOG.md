@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.17.3
+
+- Ajoute la liste locale des comptes BoursoBank, leur association à un compte Glittering existant et leur synchronisation individuelle.
+- Corrige l’import des montants décimaux renvoyés par le connecteur BoursoBank.
+
+
 ## 2.17.0
 
 - Liste les comptes BoursoBank dans l’interface locale Home Assistant.
