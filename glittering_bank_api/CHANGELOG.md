@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.7
+
+- Ajoute un diagnostic anonymisé de la structure des crédits BoursoBank pour préparer leur prise en charge.
+
+
 ## 2.17.4
 
 - Affiche les crédits BoursoBank et les comptes externes agrégés dans la liste locale d’association.
