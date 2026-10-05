@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.17.4
+
+- Affiche les crédits BoursoBank et les comptes externes agrégés dans la liste locale d’association.
+- Indique leur banque source et leur disponibilité de synchronisation.
+
+
 ## 2.17.3
 
 - Ajoute la liste locale des comptes BoursoBank, leur association à un compte Glittering existant et leur synchronisation individuelle.
