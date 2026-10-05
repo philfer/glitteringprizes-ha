@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.8
+
+- Affiche automatiquement le diagnostic anonymisé de structure des crédits BoursoBank dans l’interface locale après connexion.
+
+
 ## 2.17.7
 
 - Ajoute un diagnostic anonymisé de la structure des crédits BoursoBank pour préparer leur prise en charge.
