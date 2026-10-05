@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.9
+
+- Détecte les crédits BoursoBank dont l’encours est affiché directement dans la carte.
+
+
 ## 2.17.8
 
 - Affiche automatiquement le diagnostic anonymisé de structure des crédits BoursoBank dans l’interface locale après connexion.
