@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.13
+
+- Parse les crédits BoursoBank carte par carte pour gérer les multiples blocs de solde.
+
+
 ## 2.17.12
 
 - Journalise le diagnostic anonymisé des cartes crédit avant validation du dashboard BoursoBank.
