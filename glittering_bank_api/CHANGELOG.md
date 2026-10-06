@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.12
+
+- Journalise le diagnostic anonymisé des cartes crédit avant validation du dashboard BoursoBank.
+
+
 ## 2.17.11
 
 - Rend le diagnostic crédit disponible même si certaines cartes BoursoBank ne sont pas encore reconnues.
