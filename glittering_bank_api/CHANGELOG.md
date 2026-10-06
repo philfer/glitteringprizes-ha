@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.19
+
+- Renforce l’individualisation des cartes crédit BoursoBank et ajoute des compteurs de diagnostic anonymisés.
+
+
 ## 2.17.18
 
 - Conserve les comptes de la section crédit BoursoBank comme crédits internes malgré les sous-libellés produit.
