@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.11
+
+- Rend le diagnostic crédit disponible même si certaines cartes BoursoBank ne sont pas encore reconnues.
+
+
 ## 2.17.10
 
 - Corrige l’anonymisation du diagnostic BoursoBank et ajoute les compteurs structurels nécessaires pour diagnostiquer les variantes de cartes crédit restantes.
