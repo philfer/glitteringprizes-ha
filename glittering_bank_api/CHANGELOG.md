@@ -1,3 +1,7 @@
+## 2.17.24
+
+- Corrige l’erreur d’exécution du parseur de crédit immobilier BoursoBank causée par l’import manquant du nettoyeur de texte partagé.
+
 ## 2.17.23
 
 - Ajoute le crédit immobilier BoursoBank comme compte LOAN interne.
