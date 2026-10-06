@@ -1,3 +1,7 @@
+## 2.18.5
+
+- Autorise le flux passkey sur localhost, 127.0.0.1 et ::1 tout en conservant HTTPS obligatoire ailleurs.
+
 ## 2.18.4
 
 - Corrige les chemins des fichiers JavaScript et CSS du frontend pour Home Assistant Ingress.
