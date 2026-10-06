@@ -1,3 +1,8 @@
+## 2.18.8
+
+- Supprime la biométrie pour les accès directs depuis un réseau privé local ainsi que via Home Assistant Ingress.
+- Corrige les routes d’authentification du frontend local vers les endpoints du backend.
+
 ## 2.18.7
 
 - Home Assistant Ingress authentifie désormais directement l’utilisateur sans passkey GlitteringPrizes.
