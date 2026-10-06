@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.18
+
+- Conserve les comptes de la section crédit BoursoBank comme crédits internes malgré les sous-libellés produit.
+
+
 ## 2.17.17
 
 - Utilise un parseur HTML structurel pour associer correctement chaque crédit BoursoBank à ses informations.
