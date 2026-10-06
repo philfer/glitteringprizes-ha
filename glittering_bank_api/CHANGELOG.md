@@ -1,3 +1,8 @@
+## 2.17.25
+
+- Corrige le libellé du crédit immobilier BoursoBank en limitant son extraction au conteneur du nom du compte.
+- Empêche les textes d’accessibilité de la page d’être utilisés comme nom du prêt.
+
 ## 2.17.24
 
 - Corrige l’erreur d’exécution du parseur de crédit immobilier BoursoBank causée par l’import manquant du nettoyeur de texte partagé.
