@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.15
+
+- Corrige la détection exacte des conteneurs de crédits BoursoBank.
+
+
 ## 2.17.14
 
 - Isole chaque crédit dans son conteneur BoursoBank et retire les valeurs financières du diagnostic.
