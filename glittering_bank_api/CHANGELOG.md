@@ -1,3 +1,8 @@
+## 2.17.20
+
+- Fix BoursoBank loan diagnostics and harden DOM parsing so loan cards can be individualized without exposing financial data.
+- Add privacy-safe parsed/returned loan counters. Loan transaction synchronization remains disabled.
+
 # Changelog
 
 ## 2.17.19
