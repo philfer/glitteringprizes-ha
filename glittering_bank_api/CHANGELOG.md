@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.17
+
+- Utilise un parseur HTML structurel pour associer correctement chaque crédit BoursoBank à ses informations.
+
+
 ## 2.17.16
 
 - Ajoute un diagnostic structurel anonymisé par carte crédit BoursoBank.
