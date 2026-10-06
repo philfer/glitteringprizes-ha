@@ -1,3 +1,8 @@
+## 2.17.22
+
+- Ajoute un diagnostic anonymisé des liens BoursoBank de crédit immobilier situés hors des routes classiques de comptes.
+- Seuls le nombre de liens et la profondeur structurelle des chemins sont exposés ; aucune URL, aucun identifiant, aucun libellé et aucun montant.
+
 ## 2.17.21
 
 - Ajoute un diagnostic anonymisé du nombre de liens de comptes crédit BoursoBank reconnus ou non par le format d’identifiant actuel.
