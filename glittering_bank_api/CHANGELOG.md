@@ -1,3 +1,8 @@
+## 2.17.26
+
+- Ajoute temporairement dans le journal de l’add-on Home Assistant le détail métier parsé de chaque compte BoursoBank, compte externe agrégé et prêt afin de faciliter le diagnostic du connecteur.
+- Les secrets d’authentification, cookies et données de session ne sont pas inclus dans ces lignes de diagnostic.
+
 ## 2.17.25
 
 - Corrige le libellé du crédit immobilier BoursoBank en limitant son extraction au conteneur du nom du compte.
