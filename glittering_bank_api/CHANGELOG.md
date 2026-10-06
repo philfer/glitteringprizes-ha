@@ -1,3 +1,7 @@
+## 2.18.3
+
+- Le bouton « Ouvrir l’interface utilisateur web » ouvre désormais GlitteringPrizes complet hébergé par le backend, à la place de l’ancienne page BoursoBank locale.
+
 ## 2.18.2
 
 - Synchronise automatiquement BoursoBank environ toutes les 3 heures avec un décalage aléatoire de ±10 minutes.
