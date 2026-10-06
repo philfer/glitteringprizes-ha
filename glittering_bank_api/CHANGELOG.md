@@ -1,3 +1,7 @@
+## 2.18.9
+
+- Affiche la cause réelle des erreurs de synchronisation Bourso et les journalise dans l’add-on.
+
 ## 2.18.8
 
 - Supprime la biométrie pour les accès directs depuis un réseau privé local ainsi que via Home Assistant Ingress.
