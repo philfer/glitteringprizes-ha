@@ -1,3 +1,7 @@
+## 2.18.4
+
+- Corrige les chemins des fichiers JavaScript et CSS du frontend pour Home Assistant Ingress.
+
 ## 2.18.3
 
 - Le bouton « Ouvrir l’interface utilisateur web » ouvre désormais GlitteringPrizes complet hébergé par le backend, à la place de l’ancienne page BoursoBank locale.
