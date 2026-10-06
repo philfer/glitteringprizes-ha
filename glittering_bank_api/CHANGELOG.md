@@ -1,3 +1,8 @@
+## 2.17.29
+
+- Récupère le libellé du crédit immobilier depuis `c-info-box__account-label` sur la carte du prêt BoursoBank.
+- Le libellé n’est plus bloquant lorsque la référence et le capital restant dû sont valides.
+
 ## 2.17.28
 
 - Corrige le nom du crédit immobilier en utilisant le libellé produit dédié fourni par BoursoBank.
