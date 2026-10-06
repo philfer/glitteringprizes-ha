@@ -1,3 +1,7 @@
+## 2.17.28
+
+- Corrige le nom du crédit immobilier en utilisant le libellé produit dédié fourni par BoursoBank.
+
 ## 2.17.27
 
 - Ajoute un diagnostic sécurisé de la structure de la page du crédit immobilier lorsque l’extraction d’un champ échoue.
