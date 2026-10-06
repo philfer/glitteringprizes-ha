@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.16
+
+- Ajoute un diagnostic structurel anonymisé par carte crédit BoursoBank.
+
+
 ## 2.17.15
 
 - Corrige la détection exacte des conteneurs de crédits BoursoBank.
