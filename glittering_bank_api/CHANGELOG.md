@@ -1,3 +1,9 @@
+## 2.18.0
+
+- Ajoute les caractéristiques détaillées des crédits immobiliers BoursoBank.
+- Ajoute les positions de placement des comptes externes compatibles.
+- Ajoute les informations détaillées des livrets BoursoBank et les transmet au frontend.
+
 ## 2.17.29
 
 - Récupère le libellé du crédit immobilier depuis `c-info-box__account-label` sur la carte du prêt BoursoBank.
