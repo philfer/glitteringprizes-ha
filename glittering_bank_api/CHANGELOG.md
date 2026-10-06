@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.10
+
+- Corrige l’anonymisation du diagnostic BoursoBank et ajoute les compteurs structurels nécessaires pour diagnostiquer les variantes de cartes crédit restantes.
+
+
 ## 2.17.9
 
 - Détecte les crédits BoursoBank dont l’encours est affiché directement dans la carte.
