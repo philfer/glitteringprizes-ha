@@ -1,3 +1,9 @@
+## 2.17.23
+
+- Ajoute le crédit immobilier BoursoBank comme compte LOAN interne.
+- Utilise le capital restant dû comme solde négatif et conserve la synchronisation des opérations désactivée pour ce compte.
+- Génère un identifiant opaque stable sans exposer la référence du prêt, son URL, son libellé ou son montant dans les logs.
+
 ## 2.17.22
 
 - Ajoute un diagnostic anonymisé des liens BoursoBank de crédit immobilier situés hors des routes classiques de comptes.
