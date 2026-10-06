@@ -1,3 +1,9 @@
+## 2.18.1
+
+- Intègre le frontend Vue directement dans l’image de l’add-on Home Assistant.
+- Rend l’application complète accessible localement sur le port 5080.
+- Le bouton « Ouvrir l’interface Web » ouvre désormais l’application GlitteringPrizes complète.
+
 ## 2.18.0
 
 - Ajoute les caractéristiques détaillées des crédits immobiliers BoursoBank.
