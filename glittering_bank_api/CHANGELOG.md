@@ -1,3 +1,11 @@
+## 2.18.2
+
+- Synchronise automatiquement BoursoBank environ toutes les 3 heures avec un décalage aléatoire de ±10 minutes.
+- Stocke les identifiants BoursoBank chiffrés et conserve une empreinte salée du mot de passe.
+- Historise les soldes, positions externes, informations des livrets et caractéristiques numériques des prêts.
+- Ajoute les graphiques d’historique pour toutes les métriques numériques BoursoBank.
+- Suspend la synchronisation et demande une validation lorsque BoursoBank impose une authentification forte.
+
 ## 2.18.1
 
 - Intègre le frontend Vue directement dans l’image de l’add-on Home Assistant.
