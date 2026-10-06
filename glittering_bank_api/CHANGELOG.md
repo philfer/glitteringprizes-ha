@@ -1,3 +1,7 @@
+## 2.17.27
+
+- Ajoute un diagnostic sécurisé de la structure de la page du crédit immobilier lorsque l’extraction d’un champ échoue.
+
 ## 2.17.26
 
 - Ajoute temporairement dans le journal de l’add-on Home Assistant le détail métier parsé de chaque compte BoursoBank, compte externe agrégé et prêt afin de faciliter le diagnostic du connecteur.
