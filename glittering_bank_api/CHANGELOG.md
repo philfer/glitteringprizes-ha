@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.17.14
+
+- Isole chaque crédit dans son conteneur BoursoBank et retire les valeurs financières du diagnostic.
+
+
 ## 2.17.13
 
 - Parse les crédits BoursoBank carte par carte pour gérer les multiples blocs de solde.
