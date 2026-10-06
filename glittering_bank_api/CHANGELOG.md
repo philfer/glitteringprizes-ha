@@ -1,3 +1,8 @@
+## 2.17.21
+
+- Ajoute un diagnostic anonymisé du nombre de liens de comptes crédit BoursoBank reconnus ou non par le format d’identifiant actuel.
+- Aucune URL, aucun identifiant, aucun libellé et aucun montant ne sont exposés.
+
 ## 2.17.20
 
 - Fix BoursoBank loan diagnostics and harden DOM parsing so loan cards can be individualized without exposing financial data.
