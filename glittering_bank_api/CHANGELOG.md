@@ -1,3 +1,9 @@
+## 2.18.7
+
+- Home Assistant Ingress authentifie désormais directement l’utilisateur sans passkey GlitteringPrizes.
+- L’accès direct au backend et l’accès externe conservent l’authentification normale.
+- Corrige les chemins API du frontend derrière le préfixe Ingress.
+
 ## 2.18.6
 
 - Autorise le flux passkey sur homeassistant.local en plus des origines localhost.
