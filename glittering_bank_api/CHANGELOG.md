@@ -1,3 +1,8 @@
+## 2.18.25
+
+- Corrige les logos de transactions sous Home Assistant Ingress en résolvant les chemins locaux relativement au préfixe dynamique de l’add-on.
+- Invalide le cache PWA précédent afin de charger immédiatement le frontend corrigé.
+
 ## 2.18.24
 
 - Centralise le rendu des icônes de transactions : les chemins `/transaction-icons/...` et les URLs `http(s)` sont systématiquement affichés comme images.
