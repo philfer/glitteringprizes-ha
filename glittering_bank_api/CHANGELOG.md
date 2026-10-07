@@ -1,3 +1,9 @@
+## 2.18.21
+
+- Télécharge et conserve localement les logos des transactions BoursoBank dans le stockage persistant de l’add-on.
+- Récupère le détail natif des opérations depuis `list__movement--label-initial` et le conserve comme référence de transaction.
+- Continue d’utiliser le `data-id` Bourso comme clé stable anti-doublon.
+
 ## 2.18.20
 
 - Synchronise automatiquement les transactions des comptes hébergés chez BoursoBank sur les 120 derniers jours.
