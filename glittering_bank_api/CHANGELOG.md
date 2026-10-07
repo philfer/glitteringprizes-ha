@@ -1,3 +1,7 @@
+## 2.18.16
+
+- La synchronisation BoursoBank réutilise les identifiants chiffrés déjà enregistrés ; le formulaire n’est affiché que pour la configuration initiale ou via « Changer les identifiants BoursoBank ».
+
 ## 2.18.15
 
 - Affiche les positions détaillées des comptes d’investissement BoursoBank : quantité, prix de revient, cours, valorisation, plus-value en euros et en pourcentage.
