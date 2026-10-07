@@ -1,3 +1,9 @@
+## 2.18.24
+
+- Centralise le rendu des icônes de transactions : les chemins `/transaction-icons/...` et les URLs `http(s)` sont systématiquement affichés comme images.
+- Invalide l’ancien cache PWA `v2.6.0` qui pouvait continuer à servir un ancien frontend après une mise à jour.
+- Le service worker privilégie désormais les assets réseau avant son cache afin de prendre en compte les nouvelles versions.
+
 ## 2.18.23
 
 - Corrige la priorité des icônes de transactions : les logos BoursoBank ne sont plus remplacés par les emojis calculés depuis les catégories.
