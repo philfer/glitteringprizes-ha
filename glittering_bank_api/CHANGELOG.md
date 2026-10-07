@@ -1,3 +1,9 @@
+## 2.18.23
+
+- Corrige la priorité des icônes de transactions : les logos BoursoBank ne sont plus remplacés par les emojis calculés depuis les catégories.
+- Affiche comme images les logos locaux `/transaction-icons/...` ainsi que les URLs `http(s)` déjà enregistrées.
+- Ajoute des tests de non-régression pour garantir la conservation des logos BoursoBank.
+
 ## 2.18.22
 
 - Affiche les logos BoursoBank locaux dans toutes les listes de transactions du frontend.
