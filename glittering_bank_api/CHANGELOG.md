@@ -1,3 +1,9 @@
+## 2.18.20
+
+- Synchronise automatiquement les transactions des comptes hébergés chez BoursoBank sur les 120 derniers jours.
+- Récupère la date, le libellé utilisateur, le montant, la catégorie, le logo et l’identifiant Bourso de chaque opération.
+- Utilise l’identifiant stable de l’opération comme clé anti-doublon lors des synchronisations suivantes.
+
 ## 2.18.18
 
 - Renforce le rapprochement des comptes BoursoBank en normalisant les libellés et les familles de types afin de détecter et masquer les doublons que 2.18.17 pouvait encore laisser visibles.
