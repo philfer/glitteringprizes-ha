@@ -1,3 +1,9 @@
+## 2.18.22
+
+- Affiche les logos BoursoBank locaux dans toutes les listes de transactions du frontend.
+- Enrichit les transactions BoursoBank déjà importées avec leur logo local lors des resynchronisations suivantes.
+- Met également à jour le libellé, la catégorie et le détail natif sans créer de doublon.
+
 ## 2.18.21
 
 - Télécharge et conserve localement les logos des transactions BoursoBank dans le stockage persistant de l’add-on.
