@@ -1,3 +1,7 @@
+## 2.18.18
+
+- Renforce le rapprochement des comptes BoursoBank en normalisant les libellés et les familles de types afin de détecter et masquer les doublons que 2.18.17 pouvait encore laisser visibles.
+
 ## 2.18.17
 
 - Empêche la création répétée du même compte BoursoBank lorsque son identifiant technique change entre deux sessions.
