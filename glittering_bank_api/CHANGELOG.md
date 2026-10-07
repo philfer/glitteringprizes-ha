@@ -1,3 +1,24 @@
+## 2.18.14
+
+- Corrige l’extraction des caractéristiques détaillées BoursoBank : prêt immobilier, informations des livrets et positions des placements externes.
+- Persiste et affiche ces informations dans le détail des comptes GlitteringPrizes.
+
+## 2.18.13
+
+- Corrige la synchronisation des comptes BoursoBank lorsque le solde est renvoyé sous forme de texte plutôt que de nombre JSON.
+
+## 2.18.12
+
+- Corrige l’écran Administration > Comptes dans Home Assistant, qui recevait la page HTML à la place du JSON attendu.
+
+## 2.18.11
+
+- Corrige la synchronisation BoursoBank avec SQLite lors du tri des administrateurs par date de création.
+
+## 2.18.10
+
+- Corrige le déchiffrement AES-GCM des identifiants BoursoBank existants.
+
 ## 2.18.9
 
 - Affiche la cause réelle des erreurs de synchronisation Bourso et les journalise dans l’add-on.
