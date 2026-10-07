@@ -1,3 +1,8 @@
+## 2.18.17
+
+- Empêche la création répétée du même compte BoursoBank lorsque son identifiant technique change entre deux sessions.
+- Rapproche les comptes existants par banque, libellé et type et masque les doublons actifs déjà créés sans supprimer leur historique.
+
 ## 2.18.16
 
 - La synchronisation BoursoBank réutilise les identifiants chiffrés déjà enregistrés ; le formulaire n’est affiché que pour la configuration initiale ou via « Changer les identifiants BoursoBank ».
