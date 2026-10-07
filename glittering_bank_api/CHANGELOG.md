@@ -1,3 +1,7 @@
+## 2.18.15
+
+- Affiche les positions détaillées des comptes d’investissement BoursoBank : quantité, prix de revient, cours, valorisation, plus-value en euros et en pourcentage.
+
 ## 2.18.14
 
 - Corrige l’extraction des caractéristiques détaillées BoursoBank : prêt immobilier, informations des livrets et positions des placements externes.
