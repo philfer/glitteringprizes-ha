@@ -1,3 +1,9 @@
+## 2.18.26
+
+- Gestion administrateur des comptes avec prévisualisation, exclusion, suppression et fusion sous confirmation explicite.
+- Protection contre la réimportation de comptes exclus lors des synchronisations BoursoBank et Actual Budget.
+- Conservation des propriétaires et des tags pendant la consolidation.
+
 ## 2.18.25
 
 - Corrige les logos de transactions sous Home Assistant Ingress en résolvant les chemins locaux relativement au préfixe dynamique de l’add-on.
