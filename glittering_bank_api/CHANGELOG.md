@@ -1,3 +1,9 @@
+## 2.18.36
+
+- Correction du parsing HTML des positions BoursoBank : libellés des actifs et dates de valorisation.
+- Diagnostics structurels du tableau de positions et des anomalies de lignes sans journaliser de données bancaires sensibles.
+- Image backend validée par GitHub Actions.
+
 ## 2.18.35
 
 - Amélioration de la récupération des positions de placements BoursoBank depuis le tableau HTML.
