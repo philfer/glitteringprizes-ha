@@ -1,3 +1,10 @@
+## 2.18.35
+
+- Amélioration de la récupération des positions de placements BoursoBank depuis le tableau HTML.
+- Diagnostic de la provenance de `pfmAccountKey` sans divulguer sa valeur ni les données bancaires.
+- Horodatage des logs Python et Uvicorn visibles dans Home Assistant.
+- Correction de la détection des liens de positions et d'une erreur de syntaxe Python ; build backend validée.
+
 ## 2.18.34
 
 - Sécurise les appels sortants du connecteur BoursoBank : seuls les hôtes déjà autorisés sont acceptés, y compris après redirection.
