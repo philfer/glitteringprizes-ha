@@ -1,3 +1,18 @@
+## 2.18.34
+
+- Sécurise les appels sortants du connecteur BoursoBank : seuls les hôtes déjà autorisés sont acceptés, y compris après redirection.
+- Vérifie la réponse HTTP du tableau de comptes avant son analyse.
+- Isole les erreurs non critiques de récupération des positions, sans masquer une session expirée ni écraser les positions existantes.
+- Signale explicitement les synchronisations simultanées.
+
+## 2.18.33
+
+- Améliore le diagnostic des échecs de synchronisation BoursoBank : code HTTP et code d'erreur amont filtré, sans divulguer les données bancaires.
+
+## 2.18.32
+
+- Ajoute des diagnostics structurés pour identifier les problèmes de récupération des placements BoursoBank, sans journaliser les données financières.
+
 ## 2.18.26
 
 - Gestion administrateur des comptes avec prévisualisation, exclusion, suppression et fusion sous confirmation explicite.
