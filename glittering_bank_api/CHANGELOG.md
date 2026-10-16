@@ -1,3 +1,17 @@
+## 2.18.40
+
+- Harmonisation du style C# et des conventions StyleCop sur le backend GlitteringPrizes et le connecteur BoursoBank natif.
+- Ajustements de formatage des classes, modèles et tests, sans changement fonctionnel intentionnel.
+- Maintien des intégrations BoursoBank C# et Actual Budget.
+
+## 2.18.39
+
+- Ajout des traces d'exception complètes pour diagnostiquer les erreurs de synchronisation automatique BoursoBank dans les journaux Home Assistant.
+
+## 2.18.38
+
+- Correction de la globalisation .NET et installation d'ICU pour la récupération des détails des comptes BoursoBank.
+
 ## 2.18.36
 
 - Correction du parsing HTML des positions BoursoBank : libellés des actifs et dates de valorisation.
