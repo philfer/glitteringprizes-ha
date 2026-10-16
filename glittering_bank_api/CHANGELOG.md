@@ -1,3 +1,8 @@
+## 2.18.41
+
+- Correction du conflit de suivi Entity Framework Core sur les associations utilisateur-compte (`AccountOwner`) pendant la synchronisation automatique BoursoBank.
+- Contrôle des associations déjà suivies et enregistrées avant insertion ; aucune suppression de transactions ni d'associations existantes.
+
 ## 2.18.40
 
 - Harmonisation du style C# et des conventions StyleCop sur le backend GlitteringPrizes et le connecteur BoursoBank natif.
