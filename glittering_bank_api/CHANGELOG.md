@@ -1,3 +1,7 @@
+## 2.18.44
+
+- Corrige l'affichage des détails bancaires depuis les tables relationnelles et la compatibilité des anciennes données JSON complexes.
+
 ## 2.18.43
 
 - Corrige le plantage au démarrage lors de la migration SQLite des détails de comptes BoursoBank (conflit de clés EF Core).
