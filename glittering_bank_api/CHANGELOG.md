@@ -1,3 +1,9 @@
+## 2.18.42
+
+- Stockage relationnel des détails BoursoBank par type de compte (courant, épargne, crédit et placements), avec tables de positions associées.
+- Migration additive des anciennes données JSON ; anciennes colonnes conservées temporairement pour faciliter la vérification et le retour arrière.
+- Correction de compilation C# validée par GitHub Actions.
+
 ## 2.18.41
 
 - Correction du conflit de suivi Entity Framework Core sur les associations utilisateur-compte (`AccountOwner`) pendant la synchronisation automatique BoursoBank.
