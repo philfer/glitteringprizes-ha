@@ -1,3 +1,8 @@
+## 2.18.43
+
+- Corrige le plantage au démarrage lors de la migration SQLite des détails de comptes BoursoBank (conflit de clés EF Core).
+- Sécurise l'insertion des détails normalisés et la réutilisation des entités suivies en mémoire.
+
 ## 2.18.42
 
 - Stockage relationnel des détails BoursoBank par type de compte (courant, épargne, crédit et placements), avec tables de positions associées.
