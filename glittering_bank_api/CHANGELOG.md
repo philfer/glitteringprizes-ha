@@ -1,3 +1,9 @@
+## 2.18.45
+
+- Intègre les évolutions de la PR #149 : architecture modulaire des connecteurs BoursoBank et Actual Budget et contrats partagés.
+- Corrige la construction Docker Home Assistant en incluant `GlitteringBank.Common` et `GlitteringBank.EnableBanking` lors du restore et du publish .NET.
+- Conserve le stockage SQLite existant ; aucune réinitialisation de données n'est demandée par cette mise à jour.
+
 ## 2.18.44
 
 - Corrige l'affichage des détails bancaires depuis les tables relationnelles et la compatibilité des anciennes données JSON complexes.
