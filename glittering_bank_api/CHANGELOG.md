@@ -1,3 +1,7 @@
+## 2.58.55
+
+- fix datetimeoffset
+
 ## 2.58.54
 
 - tst
