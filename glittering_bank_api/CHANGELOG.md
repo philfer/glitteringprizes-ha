@@ -1,516 +1,608 @@
 ## 2.18.47
 
-- Corrige le crash SQLite au démarrage (`near "@p0": syntax error`) dans la création des tables de détails de comptes : les noms de tables ne sont plus paramétrés.
-- Conserve la base SQLite et les données bancaires existantes, sans réinitialisation.
+- Corrige le plantage au démarrage de Home Assistant (`SQLite Error 1: near "@p0"`) : les noms de tables de la migration SQLite sont désormais intégrés à la requête SQL au lieu d'être passés comme paramètres.
+- Migration additive et relançable, sans suppression ni réinitialisation de la base SQLite existante.
 
 ## 2.18.46
 
-- Corrige le crash SQLite au démarrage (`near "@p0": syntax error`) dans la création des tables de détails de comptes : les noms de tables ne sont plus paramétrés.
-- Conserve la base SQLite et les données bancaires existantes, sans réinitialisation.
+- Corrige le plantage au démarrage de Home Assistant (`SQLite Error 1: near "@p0"`) : les noms de tables de la migration SQLite sont désormais intégrés à la requête SQL au lieu d'être passés comme paramètres.
+- Migration additive et relançable, sans suppression ni réinitialisation de la base SQLite existante.
 
 ## 2.18.45
 
-- Intègre les évolutions de la PR #149 : architecture modulaire des connecteurs BoursoBank et Actual Budget et contrats partagés.
-- Corrige la construction Docker Home Assistant en incluant `GlitteringBank.Common` et `GlitteringBank.EnableBanking` lors du restore et du publish .NET.
-- Conserve le stockage SQLite existant ; aucune réinitialisation de données n'est demandée par cette mise à jour.
+- Intègre les contrats bancaires partagés et les nouveaux fetchers BoursoBank / Actual Budget introduits par la PR #149.
+- Corrige le Dockerfile Home Assistant pour copier `GlitteringBank.Common` et `GlitteringBank.EnableBanking` avant la restauration et la publication .NET.
+- Rétablit la possibilité de construire l'image Home Assistant avec ces dépendances ; la validation de la publication reste à confirmer.
 
 ## 2.18.44
 
-- Corrige l'affichage des détails bancaires depuis les tables relationnelles et la compatibilité des anciennes données JSON complexes.
+- Corrige l'API de détail des comptes : lecture des tables relationnelles normalisées, avec repli sur les anciennes données JSON.
+- Préserve les valeurs complexes (tableaux et objets imbriqués, notamment `Operations`) pendant la transition.
 
 ## 2.18.43
 
-- Corrige le plantage au démarrage lors de la migration SQLite des détails de comptes BoursoBank (conflit de clés EF Core).
-- Sécurise l'insertion des détails normalisés et la réutilisation des entités suivies en mémoire.
+- Corrige le plantage au démarrage lors de la migration des détails de comptes vers SQLite : attribution de clés uniques avant le suivi EF Core des entités TPC.
+- Réutilise les détails déjà suivis en mémoire pour éviter les doublons lors de la migration et de la synchronisation BoursoBank.
 
 ## 2.18.42
 
-- Stockage relationnel des détails BoursoBank par type de compte (courant, épargne, crédit et placements), avec tables de positions associées.
-- Migration additive des anciennes données JSON ; anciennes colonnes conservées temporairement pour faciliter la vérification et le retour arrière.
-- Correction de compilation C# validée par GitHub Actions.
+- Remplace l'écriture des détails de comptes BoursoBank en JSON par des tables relationnelles spécialisées (courant, épargne, crédit, placements et positions).
+- Ajoute une migration additive et relançable des données historiques vers ces tables, en conservant temporairement les anciennes colonnes JSON pour sécuriser la transition.
+- Corrige les contraintes génériques C# des modèles de détails de comptes et valide la compilation en CI.
 
 ## 2.18.41
 
-- Correction du conflit de suivi Entity Framework Core sur les associations utilisateur-compte (`AccountOwner`) pendant la synchronisation automatique BoursoBank.
-- Contrôle des associations déjà suivies et enregistrées avant insertion ; aucune suppression de transactions ni d'associations existantes.
+- Corrige l'échec de synchronisation automatique BoursoBank lié à une association `AccountOwner` ajoutée deux fois au suivi Entity Framework Core.
+- Vérifie les associations déjà suivies en mémoire et celles enregistrées en base avant insertion, sans modifier les transactions ni supprimer les associations existantes.
 
 ## 2.18.40
 
-- Harmonisation du style C# et des conventions StyleCop sur le backend GlitteringPrizes et le connecteur BoursoBank natif.
-- Ajustements de formatage des classes, modèles et tests, sans changement fonctionnel intentionnel.
-- Maintien des intégrations BoursoBank C# et Actual Budget.
+- Harmonise le style C# et applique les conventions communes StyleCop dans le backend et le connecteur natif BoursoBank.
+- Finalise les ajustements de formatage des classes, modèles et tests, sans modification fonctionnelle intentionnelle.
+- Conserve la synchronisation BoursoBank native C#, Actual Budget et la configuration existante.
 
 ## 2.18.39
 
-- Ajout des traces d'exception complètes pour diagnostiquer les erreurs de synchronisation automatique BoursoBank dans les journaux Home Assistant.
+- Affiche désormais la stacktrace complète des erreurs de synchronisation automatique BoursoBank dans les journaux Home Assistant via `LogError(exception, ...)`.
 
 ## 2.18.38
 
-- Correction de la globalisation .NET et installation d'ICU pour la récupération des détails des comptes BoursoBank.
+- Corrige `CultureNotFoundException` lors de la récupération des détails de comptes BoursoBank par le connecteur natif C#.
+- Installe les bibliothèques et données ICU dans l'image Home Assistant Alpine et désactive le mode de globalisation invariant de .NET.
+- Conserve `actual-sync.mjs` et l'intégration Actual Budget inchangés.
+
+## 2.18.37
+
+- Passage du SDK et du runtime du backend à .NET 10 et adaptation du Dockerfile pour compiler la bibliothèque C# BoursoBank référencée.
+- Mise à jour du SDK GitHub Actions de validation vers .NET 10.
+- Préparation du déploiement Home Assistant avec cette correction de compilation.
+- Le connecteur Python reste actuellement actif dans le backend publié ; le basculement complet vers le fetcher C# n'est pas inclus dans cette version.
 
 ## 2.18.36
 
-- Correction du parsing HTML des positions BoursoBank : libellés des actifs et dates de valorisation.
-- Diagnostics structurels du tableau de positions et des anomalies de lignes sans journaliser de données bancaires sensibles.
-- Image backend validée par GitHub Actions.
+- Correction des expressions régulières de parsing des positions BoursoBank : reconnaissance des libellés d'actifs et des dates de valorisation.
+- Diagnostics structurels des tableaux de positions (présence, nombre de lignes, anomalies de colonnes ou libellés) sans données bancaires sensibles.
+- Build backend du correctif vérifiée avec succès avant publication.
 
 ## 2.18.35
 
-- Amélioration de la récupération des positions de placements BoursoBank depuis le tableau HTML.
-- Diagnostic de la provenance de `pfmAccountKey` sans divulguer sa valeur ni les données bancaires.
-- Horodatage des logs Python et Uvicorn visibles dans Home Assistant.
-- Correction de la détection des liens de positions et d'une erreur de syntaxe Python ; build backend validée.
+- Positions BoursoBank : découverte sécurisée du lien de positions et de pfmAccountKey dans la page du compte, sans exposer la clé dans les logs.
+- Extraction améliorée des libellés d'actifs et dates de valorisation depuis le tableau HTML.
+- Diagnostics de provenance de la clé et horodatage des journaux Python/Uvicorn visibles dans Home Assistant.
+- Correction de syntaxe Python validée par la build du backend.
 
 ## 2.18.34
 
-- Sécurise les appels sortants du connecteur BoursoBank : seuls les hôtes déjà autorisés sont acceptés, y compris après redirection.
-- Vérifie la réponse HTTP du tableau de comptes avant son analyse.
-- Isole les erreurs non critiques de récupération des positions, sans masquer une session expirée ni écraser les positions existantes.
-- Signale explicitement les synchronisations simultanées.
+- Sécurité BoursoBank : contrôle des hôtes sortants existants et blocage des destinations non approuvées, y compris les redirections ; aucun nouveau domaine externe.
+- Vérification du statut HTTP du tableau de comptes, isolation des erreurs non critiques de positions, propagation des expirations de session et signalement des synchronisations concurrentes.
 
 ## 2.18.33
 
-- Améliore le diagnostic des échecs de synchronisation BoursoBank : code HTTP et code d'erreur amont filtré, sans divulguer les données bancaires.
+- Diagnostic de la synchronisation BoursoBank : statut HTTP et code d'erreur du connecteur sans données sensibles.
 
-## 2.18.32
+## 2.18.32 
+- 2.18.33 : diagnostic des échecs BoursoBank /accounts avec statut HTTP et code amont filtré, sans journalisation des données sensibles.
+- Diagnostic BoursoBank des placements : étapes de découverte des pages, codes HTTP, présence des tableaux et nombre de positions, avec identifiants pseudonymisés et sans données financières dans les logs. Recherche des liens de placements sans restriction au chemin PERP/PERCO.
+- Recherche globale des comptes déplacée en tête de l'administration et appliquée aux sélecteurs de fusion/suppression et aux modules de gestion.
+- Suppression de dossier : réaffecte les comptes et sous-dossiers directement à la racine virtuelle (FolderId/ParentFolderId nuls), au lieu du dossier parent.
+- Ajoute l'action de suppression confirmée dans l'administration des dossiers.
 
-- Ajoute des diagnostics structurés pour identifier les problèmes de récupération des placements BoursoBank, sans journaliser les données financières.
+## 2.18.30
+- Corrige l'association utilisateur des comptes BoursoBank déjà existants : les comptes actifs synchronisés retrouvent leur propriétaire lors de la prochaine synchronisation.
+- Supprime l'autorisation automatique fondée sur le sous-réseau local ; l'authentification reste obligatoire hors proxy Home Assistant explicitement approuvé.
+- Corrige la route Vercel permettant de consulter les comptes BoursoBank synchronisés et leurs relevés.
+
+## 2.18.29
+- Administration BoursoBank : affiche les comptes actifs gérés par la synchronisation automatique.
+- Présente les cinq derniers relevés de soldes disponibles, par compte et par date, avec actualisation manuelle.
+- Restreint la confiance réseau locale à 192.168.1.0/24 et réserve les en-têtes d'identité Home Assistant aux adresses de proxy explicitement autorisées.
+- Isole la clé de chiffrement des identifiants BoursoBank de la clé API et migre les identifiants déjà chiffrés.
+- Maintient le connecteur Python BoursoBank sur l'interface loopback et ajoute des contrôles de sécurité au workflow de validation.
+
+## 2.18.28
+- Import CSV en deux étapes : prévisualisation des comptes et association explicite à un compte existant ou nouveau avant intégration.
+- Conservation des opérations historiques dans les comptes bancaires sélectionnés.
+
+## 2.18.27
+- Active la tentative de synchronisation des opérations des comptes externes courants et d'épargne visibles dans BoursoBank.
+- Isole les clés de déduplication par compte pour éviter les collisions entre banques.
+- Signale les erreurs HTTP et redirections de connexion pendant la lecture des mouvements au lieu de les interpréter comme un historique vide.
+- Les comptes externes dont BoursoBank ne fournit pas de page de mouvements compatible restent non synchronisés.
 
 ## 2.18.26
-
-- Gestion administrateur des comptes avec prévisualisation, exclusion, suppression et fusion sous confirmation explicite.
-- Protection contre la réimportation de comptes exclus lors des synchronisations BoursoBank et Actual Budget.
-- Conservation des propriétaires et des tags pendant la consolidation.
+- Ajoute la gestion administrateur des comptes : prévisualisation, exclusions de synchronisation, suppression et fusion avec confirmation.
+- Empêche la réimportation automatique des comptes exclus depuis BoursoBank et Actual Budget.
+- Renforce l'association des comptes Actual Budget pour éviter les rapprochements par nom entre banques.
+- Préserve les propriétaires, les tags et les métriques BoursoBank lors des opérations de fusion.
 
 ## 2.18.25
-
-- Corrige les logos de transactions sous Home Assistant Ingress en résolvant les chemins locaux relativement au préfixe dynamique de l’add-on.
-- Invalide le cache PWA précédent afin de charger immédiatement le frontend corrigé.
+- Corrige les URLs `/transaction-icons/...` sous Home Assistant Ingress en les rendant relatives au préfixe dynamique de l’add-on.
+- Invalide le cache PWA 2.18.24 pour diffuser immédiatement le nouveau frontend.
 
 ## 2.18.24
-
-- Centralise le rendu des icônes de transactions : les chemins `/transaction-icons/...` et les URLs `http(s)` sont systématiquement affichés comme images.
-- Invalide l’ancien cache PWA `v2.6.0` qui pouvait continuer à servir un ancien frontend après une mise à jour.
-- Le service worker privilégie désormais les assets réseau avant son cache afin de prendre en compte les nouvelles versions.
+- Force l’invalidation du cache PWA historique qui pouvait continuer à servir un ancien frontend malgré la mise à jour de l’add-on.
+- Le rendu des logos de transactions est désormais centralisé et cohérent dans tous les écrans.
 
 ## 2.18.23
-
-- Corrige la priorité des icônes de transactions : les logos BoursoBank ne sont plus remplacés par les emojis calculés depuis les catégories.
-- Affiche comme images les logos locaux `/transaction-icons/...` ainsi que les URLs `http(s)` déjà enregistrées.
-- Ajoute des tests de non-régression pour garantir la conservation des logos BoursoBank.
+- `TransactionPresentation` conserve désormais les icônes image locales ou distantes avant le mapping catégorie → emoji.
+- Permet ainsi aux logos BoursoBank réellement stockés sur les transactions d’arriver jusqu’au frontend.
+- Ajoute des tests de non-régression pour une transaction MAIF classée `Assurances (Auto/Moto)`.
 
 ## 2.18.22
-
-- Affiche les logos BoursoBank locaux dans toutes les listes de transactions du frontend.
-- Enrichit les transactions BoursoBank déjà importées avec leur logo local lors des resynchronisations suivantes.
-- Met également à jour le libellé, la catégorie et le détail natif sans créer de doublon.
+- Met à jour les transactions BoursoBank existantes lors d’une resynchronisation afin de remplacer les anciens emojis par le logo local quand il est disponible.
+- Complète également catégorie, libellé et détail natif sans créer de doublon.
 
 ## 2.18.21
-
-- Télécharge et conserve localement les logos des transactions BoursoBank dans le stockage persistant de l’add-on.
-- Récupère le détail natif des opérations depuis `list__movement--label-initial` et le conserve comme référence de transaction.
-- Continue d’utiliser le `data-id` Bourso comme clé stable anti-doublon.
+- Met en cache localement dans `/data/transaction-icons` les logos des opérations BoursoBank et les sert via `/transaction-icons`.
+- Parse `list__movement--label-initial` et conserve ce détail dans la référence de la transaction, sans remplacer la clé anti-doublon basée sur `data-id`.
 
 ## 2.18.20
+- Ajoute l’import automatique des transactions BoursoBank sur 120 jours pour les comptes supportés et non externes.
+- Parse les opérations par `list-operation-date-line` / `list-operation-item` : catégorie, libellé utilisateur, montant, logo, date et `data-id`.
+- Persiste catégorie et logo et utilise le `data-id` comme clé d’import stable anti-doublon.
 
-- Synchronise automatiquement les transactions des comptes hébergés chez BoursoBank sur les 120 derniers jours.
-- Récupère la date, le libellé utilisateur, le montant, la catégorie, le logo et l’identifiant Bourso de chaque opération.
-- Utilise l’identifiant stable de l’opération comme clé anti-doublon lors des synchronisations suivantes.
+## 2.18.19
+- Migre les anciens crédits immobiliers BoursoBank vers l’identifiant stable `bourso_mortgage_*` et désactive/masque les copies historiques portant le même libellé.
 
 ## 2.18.18
-
-- Renforce le rapprochement des comptes BoursoBank en normalisant les libellés et les familles de types afin de détecter et masquer les doublons que 2.18.17 pouvait encore laisser visibles.
+- Normalise les noms et familles de comptes BoursoBank lors de l’upsert afin de rapprocher les doublons malgré les variations de ponctuation, accents ou classification d’épargne/investissement.
 
 ## 2.18.17
-
-- Empêche la création répétée du même compte BoursoBank lorsque son identifiant technique change entre deux sessions.
-- Rapproche les comptes existants par banque, libellé et type et masque les doublons actifs déjà créés sans supprimer leur historique.
+- Corrige l’upsert BoursoBank lorsque l’identifiant technique amont change entre deux sessions.
+- Rapproche les comptes Bourso existants par banque, nom et type et désactive/masque les doublons actifs existants sans suppression physique.
 
 ## 2.18.16
-
-- La synchronisation BoursoBank réutilise les identifiants chiffrés déjà enregistrés ; le formulaire n’est affiché que pour la configuration initiale ou via « Changer les identifiants BoursoBank ».
+- Simplifie l’interface BoursoBank : les identifiants chiffrés déjà stockés restent masqués pendant les synchronisations et ne sont modifiables que via l’action dédiée.
 
 ## 2.18.15
+- Expose les positions détaillées des comptes d’investissement BoursoBank dans le détail du compte : quantité, prix de revient, cours, valorisation, plus-value en euros et pourcentage calculé.
 
-- Affiche les positions détaillées des comptes d’investissement BoursoBank : quantité, prix de revient, cours, valorisation, plus-value en euros et en pourcentage.
+## 2.18.15
+- Affiche les positions détaillées des comptes d’investissement BoursoBank : quantité, prix de revient, cours, valorisation et plus-value en euros.
+- Calcule et affiche la plus-value latente en pourcentage lorsque les données BoursoBank permettent de déterminer le prix de revient total.
 
 ## 2.18.14
-
-- Corrige l’extraction des caractéristiques détaillées BoursoBank : prêt immobilier, informations des livrets et positions des placements externes.
-- Persiste et affiche ces informations dans le détail des comptes GlitteringPrizes.
+- Corrige l’extraction des caractéristiques détaillées BoursoBank pour les prêts immobiliers, les livrets/épargne et les positions des placements externes.
+- Persiste ces informations afin qu’elles soient disponibles dans le détail des comptes GlitteringPrizes.
 
 ## 2.18.13
-
-- Corrige la synchronisation des comptes BoursoBank lorsque le solde est renvoyé sous forme de texte plutôt que de nombre JSON.
+- Corrige la synchronisation BoursoBank lorsque `balanceEur` est renvoyé sous forme de chaîne JSON au lieu d’un nombre ; les formats numériques et textuels sont désormais acceptés.
 
 ## 2.18.12
-
-- Corrige l’écran Administration > Comptes dans Home Assistant, qui recevait la page HTML à la place du JSON attendu.
+- Corrige Administration > Comptes dans le frontend Home Assistant : le chargement utilise directement les endpoints backend JSON au lieu de tomber sur le fallback HTML Vue.
 
 ## 2.18.11
-
-- Corrige la synchronisation BoursoBank avec SQLite lors du tri des administrateurs par date de création.
+- Corrige la synchronisation BoursoBank avec SQLite en effectuant côté .NET le tri des administrateurs par `CreatedAt` (`DateTimeOffset`), non pris en charge par SQLite dans une clause `ORDER BY`.
 
 ## 2.18.10
-
-- Corrige le déchiffrement AES-GCM des identifiants BoursoBank existants.
+- Corrige le déchiffrement AES-GCM des identifiants BoursoBank en utilisant correctement le ciphertext et le tag. Les identifiants déjà enregistrés avec le format existant restent compatibles.
 
 ## 2.18.9
 
-- Affiche la cause réelle des erreurs de synchronisation Bourso et les journalise dans l’add-on.
+- Log manual Bourso synchronization exceptions in the Home Assistant add-on journal.
+- Return the underlying Bourso synchronization error to the frontend instead of an opaque HTTP 502.
 
 ## 2.18.8
 
-- Supprime la biométrie pour les accès directs depuis un réseau privé local ainsi que via Home Assistant Ingress.
-- Corrige les routes d’authentification du frontend local vers les endpoints du backend.
+- Skip GlitteringPrizes passkey authentication for private LAN clients and Home Assistant Ingress.
+- Fix local frontend authentication URLs to call the backend /api/auth/* routes instead of the Vercel proxy route.
 
 ## 2.18.7
 
-- Home Assistant Ingress authentifie désormais directement l’utilisateur sans passkey GlitteringPrizes.
-- L’accès direct au backend et l’accès externe conservent l’authentification normale.
-- Corrige les chemins API du frontend derrière le préfixe Ingress.
+- Trust authenticated Home Assistant Ingress requests and skip passkey authentication only through Ingress.
+- Keep frontend and authentication API calls under the dynamic Home Assistant Ingress path.
 
 ## 2.18.6
 
-- Autorise le flux passkey sur homeassistant.local en plus des origines localhost.
+- Allow the passkey flow on homeassistant.local in addition to localhost loopback origins.
 
 ## 2.18.5
 
-- Autorise le flux passkey sur localhost, 127.0.0.1 et ::1 tout en conservant HTTPS obligatoire ailleurs.
+- Allow the passkey flow on localhost, 127.0.0.1 and ::1 while keeping HTTPS required for non-local origins.
 
 ## 2.18.4
 
-- Corrige les chemins des fichiers JavaScript et CSS du frontend pour Home Assistant Ingress.
+- Build frontend assets with relative URLs so JavaScript and CSS load correctly behind Home Assistant Ingress.
 
 ## 2.18.3
 
-- Le bouton « Ouvrir l’interface utilisateur web » ouvre désormais GlitteringPrizes complet hébergé par le backend, à la place de l’ancienne page BoursoBank locale.
+- Open the complete backend-hosted GlitteringPrizes application from the Home Assistant add-on Web UI instead of the legacy BoursoBank-only page.
 
 ## 2.18.2
 
-- Synchronise automatiquement BoursoBank environ toutes les 3 heures avec un décalage aléatoire de ±10 minutes.
-- Stocke les identifiants BoursoBank chiffrés et conserve une empreinte salée du mot de passe.
-- Historise les soldes, positions externes, informations des livrets et caractéristiques numériques des prêts.
-- Ajoute les graphiques d’historique pour toutes les métriques numériques BoursoBank.
-- Suspend la synchronisation et demande une validation lorsque BoursoBank impose une authentification forte.
+- Add automatic BoursoBank synchronization every ~3 hours with a fresh random ±10 minute offset after each run.
+- Store BoursoBank credentials encrypted at rest with AES-GCM and keep a salted PBKDF2 password fingerprint; secrets are never returned by the API.
+- Preserve MFA: automatic synchronization pauses and reports when BoursoBank requires user validation.
+- Persist timestamped numeric history for account balances, external positions, savings metadata and mortgage characteristics.
+- Add generic frontend charts for every numeric BoursoBank metric.
 
 ## 2.18.1
 
-- Intègre le frontend Vue directement dans l’image de l’add-on Home Assistant.
-- Rend l’application complète accessible localement sur le port 5080.
-- Le bouton « Ouvrir l’interface Web » ouvre désormais l’application GlitteringPrizes complète.
+- Bundle the Vue frontend into the Home Assistant backend image and serve it from ASP.NET Core on port 5080.
+- Keep API calls relative so the same frontend works locally and on Vercel.
+- Open the full GlitteringPrizes interface from the Home Assistant add-on Web UI button.
 
 ## 2.18.0
 
-- Ajoute les caractéristiques détaillées des crédits immobiliers BoursoBank.
-- Ajoute les positions de placement des comptes externes compatibles.
-- Ajoute les informations détaillées des livrets BoursoBank et les transmet au frontend.
+- Extract and expose detailed BoursoBank mortgage characteristics.
+- Extract, persist and expose investment positions for supported aggregated external accounts.
+- Extract, persist and expose BoursoBank savings databox information such as accrued interest, ceiling, opening date and interest rate.
+- Surface the new account metadata in the frontend account detail view.
 
 ## 2.17.29
 
-- Récupère le libellé du crédit immobilier depuis `c-info-box__account-label` sur la carte du prêt BoursoBank.
-- Le libellé n’est plus bloquant lorsque la référence et le capital restant dû sont valides.
+- Read the mortgage display name from the dashboard loan card's `c-info-box__account-label`, while keeping `Crédit immobilier` only as a final fallback.
+- Do not reject a valid mortgage when its optional display label cannot be extracted, provided its reference and outstanding capital are valid.
 
 ## 2.17.28
 
-- Corrige le nom du crédit immobilier en utilisant le libellé produit dédié fourni par BoursoBank.
+- Parse the BoursoBank mortgage name from the dedicated `c-product-title__label` element, with the account edit-label parser retained as a fallback.
 
 ## 2.17.27
 
-- Ajoute un diagnostic sécurisé de la structure de la page du crédit immobilier lorsque l’extraction d’un champ échoue.
+- Add a privacy-safe mortgage page diagnostic showing which required fields and relevant structural classes are present when parsing fails.
 
 ## 2.17.26
 
-- Ajoute temporairement dans le journal de l’add-on Home Assistant le détail métier parsé de chaque compte BoursoBank, compte externe agrégé et prêt afin de faciliter le diagnostic du connecteur.
-- Les secrets d’authentification, cookies et données de session ne sont pas inclus dans ces lignes de diagnostic.
+- Temporarily log the complete parsed business payload for every BoursoBank, aggregated external and loan account in the Home Assistant add-on journal for connector diagnostics.
+- Authentication secrets, cookies and session material are not included in these account-detail log entries.
 
 ## 2.17.25
 
-- Corrige le libellé du crédit immobilier BoursoBank en limitant son extraction au conteneur du nom du compte.
-- Empêche les textes d’accessibilité de la page d’être utilisés comme nom du prêt.
+- Scope BoursoBank mortgage label extraction to the account edit-label container so unrelated accessibility text cannot become the account name.
 
 ## 2.17.24
 
-- Corrige l’erreur d’exécution du parseur de crédit immobilier BoursoBank causée par l’import manquant du nettoyeur de texte partagé.
+- Fix the BoursoBank mortgage parser runtime failure by importing the shared text sanitizer used for the mortgage label.
 
 ## 2.17.23
 
-- Ajoute le crédit immobilier BoursoBank comme compte LOAN interne.
-- Utilise le capital restant dû comme solde négatif et conserve la synchronisation des opérations désactivée pour ce compte.
-- Génère un identifiant opaque stable sans exposer la référence du prêt, son URL, son libellé ou son montant dans les logs.
+- Import BoursoBank mortgage detail pages as internal LOAN accounts.
+- Use the outstanding principal as a negative balance and keep mortgage transaction sync disabled.
+- Derive a stable opaque external ID from the mortgage reference without logging the reference, URL, label, balance, or raw HTML.
 
 ## 2.17.22
 
-- Ajoute un diagnostic anonymisé des liens BoursoBank de crédit immobilier situés hors des routes classiques de comptes.
-- Seuls le nombre de liens et la profondeur structurelle des chemins sont exposés ; aucune URL, aucun identifiant, aucun libellé et aucun montant.
+- Add privacy-safe BoursoBank mortgage-link diagnostics for credit immobilier pages that are outside the classic account-card route.
+- Report only mortgage-link counts and path-depth shapes; never URLs, identifiers, labels, balances, or raw HTML.
 
 ## 2.17.21
 
-- Ajoute un diagnostic anonymisé du nombre de liens de comptes crédit BoursoBank reconnus ou non par le format d’identifiant actuel.
-- Aucune URL, aucun identifiant, aucun libellé et aucun montant ne sont exposés.
+- Extend privacy-safe BoursoBank loan diagnostics to count all loan account hrefs and how many do not match the currently supported 32-hex account identifier shape.
+- No account URLs, identifiers, labels, balances, or raw HTML are logged.
 
 ## 2.17.20
 
-- Fix BoursoBank loan diagnostics and harden DOM parsing so loan cards can be individualized without exposing financial data.
-- Add privacy-safe parsed/returned loan counters. Loan transaction synchronization remains disabled.
+- Fix BoursoBank loan diagnostics by using a public privacy-safe parser diagnostic helper instead of calling the private `_loan_cards` symbol from `main.py`.
+- Keep loan diagnostics anonymized while reporting parsed loan count, returned loan-ID count, and distinct parsed field-set count.
+- Make the loan DOM parser ignore HTML void elements so its stack cannot drift and associate fields with the wrong credit card.
 
 # Changelog
 
 ## 2.17.19
 
-- Renforce l’individualisation des cartes crédit BoursoBank et ajoute des compteurs de diagnostic anonymisés.
+- N’accepte une carte crédit DOM que lorsqu’elle correspond à un seul ID de compte et ajoute des compteurs de diagnostic anonymisés.
 
 
 ## 2.17.18
 
-- Conserve les comptes de la section crédit BoursoBank comme crédits internes malgré les sous-libellés produit.
+- Classe les comptes de la section crédit BoursoBank comme crédits internes même lorsque leur sous-libellé décrit le financement plutôt que la banque.
 
 
 ## 2.17.17
 
-- Utilise un parseur HTML structurel pour associer correctement chaque crédit BoursoBank à ses informations.
+- Remplace le découpage regex des crédits par un parseur HTML structurel associant ID, solde, libellé et banque au plus petit ancêtre commun.
 
 
 ## 2.17.16
 
-- Ajoute un diagnostic structurel anonymisé par carte crédit BoursoBank.
+- Ajoute un diagnostic structurel anonymisé autour de chacune des cartes crédit BoursoBank.
 
 
 ## 2.17.15
 
-- Corrige la détection exacte des conteneurs de crédits BoursoBank.
+- Corrige la détection du conteneur exact des cartes crédit BoursoBank sans confondre les sous-classes balance/label.
 
 
 ## 2.17.14
 
-- Isole chaque crédit dans son conteneur BoursoBank et retire les valeurs financières du diagnostic.
+- Isole chaque crédit dans son conteneur de compte BoursoBank et supprime tout contenu financier du diagnostic journalisé.
 
 
 ## 2.17.13
 
-- Parse les crédits BoursoBank carte par carte pour gérer les multiples blocs de solde.
+- Parse les crédits BoursoBank carte par carte afin de gérer les multiples blocs de solde présents dans la section crédit.
 
 
 ## 2.17.12
 
-- Journalise le diagnostic anonymisé des cartes crédit avant validation du dashboard BoursoBank.
+- Écrit le diagnostic anonymisé des cartes crédit dans les logs avant validation du dashboard.
 
 
 ## 2.17.11
 
-- Rend le diagnostic crédit disponible même si certaines cartes BoursoBank ne sont pas encore reconnues.
+- Rend le diagnostic des crédits accessible même lorsque le parseur principal refuse des cartes BoursoBank.
 
 
 ## 2.17.10
 
-- Corrige l’anonymisation du diagnostic BoursoBank et ajoute les compteurs structurels nécessaires pour diagnostiquer les variantes de cartes crédit restantes.
+- Corrige l’anonymisation du diagnostic BoursoBank et ajoute les compteurs structurels nécessaires pour les variantes de cartes crédit.
 
 
 ## 2.17.9
 
-- Détecte les crédits BoursoBank dont l’encours est affiché directement dans la carte.
+- Détecte les crédits BoursoBank dont l’encours est affiché directement dans la carte, sans libellé « Solde : ».
 
 
 ## 2.17.8
 
 - Affiche automatiquement le diagnostic anonymisé de structure des crédits BoursoBank dans l’interface locale après connexion.
 
+- Ajoute un diagnostic anonymisé des formats date/montant et de la structure de la ligne BoursoBank en échec.
+
+# Changelog
 
 ## 2.17.7
 
-- Ajoute un diagnostic anonymisé de la structure des crédits BoursoBank pour préparer leur prise en charge.
+- Corrige définitivement le retour JSON Python du diagnostic anonymisé des crédits BoursoBank.
+
+
+## 2.17.6
+
+- Corrige la syntaxe du diagnostic anonymisé des cartes de crédit BoursoBank introduit en 2.17.5.
+
+
+## 2.17.5
+
+- Ajoute un diagnostic local anonymisé de la structure des cartes de crédit BoursoBank afin de supporter leur affichage sans exposer de données financières.
 
 
 ## 2.17.4
 
-- Affiche les crédits BoursoBank et les comptes externes agrégés dans la liste locale d’association.
-- Indique leur banque source et leur disponibilité de synchronisation.
+- Affiche dans l’interface locale les crédits BoursoBank et les comptes externes agrégés.
+- Indique la banque source et distingue les comptes visibles des comptes dont l’historique est synchronisable.
+- Conserve la synchronisation individuelle pour les comptes courants et d’épargne BoursoBank supportés.
 
 
 ## 2.17.3
 
-- Ajoute la liste locale des comptes BoursoBank, leur association à un compte Glittering existant et leur synchronisation individuelle.
-- Corrige l’import des montants décimaux renvoyés par le connecteur BoursoBank.
+- Supprime les séquences de nouvelle ligne échappées restées littéralement dans la source C# et rétablit la compilation.
+
+
+## 2.17.2
+
+- Corrige la compilation du parseur de montants BoursoBank ajouté en 2.17.1.
+
+
+## 2.17.1
+
+- Corrige la synchronisation individuelle BoursoBank lorsque `amountEur` est sérialisé comme chaîne décimale par le connecteur Python.
 
 
 ## 2.17.0
 
-- Liste les comptes BoursoBank dans l’interface locale Home Assistant.
-- Permet leur association à un compte GlitteringPrizes existant et leur synchronisation individuelle.
-- Ajoute une protection contre les doublons lors de l’import des opérations.
+- Affiche les comptes BoursoBank dans l’interface locale Home Assistant.
+- Permet d’associer chaque compte BoursoBank à un compte GlitteringPrizes existant puis de le synchroniser individuellement.
+- Importe jusqu’à 120 jours d’opérations comptabilisées et ignore les autorisations en attente.
+- Évite les doublons déjà présents sur le compte cible par date et montant, puis utilise un `ImportKey` Bourso stable pour les synchronisations suivantes.
+- Aucun changement du frontend Vercel.
 
 
 ## 2.16.25
 
-- Corrige la reconnaissance des dates françaises des opérations BoursoBank.
+- Corrige l’échappement de la regex de date française BoursoBank (`3 octobre 2026`).
 
 
 ## 2.16.24
 
-- Corrige la finalisation des lignes d’opérations BoursoBank contenant des éléments HTML vides.
+- Corrige la profondeur du parseur HTML des opérations BoursoBank en tenant compte des éléments HTML vides comme `input`.
+- Limite la capture du montant et du libellé à leur élément respectif.
 
 
 ## 2.16.23
 
-- Corrige le parsing structurel des dates, montants et libellés BoursoBank.
+- Utilise réellement `HTMLParser` pour associer les en-têtes de date, montants et libellés des opérations BoursoBank, sans dépendre de l’ordre des classes HTML.
 
 
 ## 2.16.22
 
-- Corrige le `NameError` du diagnostic d’historique BoursoBank.
-
-
-## 2.16.21
-
-- Ajoute le diagnostic anonymisé des formats nécessaires au parseur BoursoBank.
+- Corrige le `NameError` du diagnostic d’historique en rendant `_shape_text` accessible au parseur.
 
 
 ## 2.16.20
 
-- Corrige la reconnaissance des lignes d’opérations BoursoBank et retire la trace de diagnostic temporaire.
+- Corrige l’échappement de la regex des lignes d’opérations BoursoBank qui empêchait tout `<li>` d’être reconnu.
+- Retire la trace structurelle temporaire devenue inutile.
 
 
 ## 2.16.19
 
-- Adapte le parseur à la structure réelle des opérations BoursoBank observée en diagnostic.
+- Adapte le parseur aux vrais séparateurs de date vides et aux lignes d’opérations observées chez BoursoBank.
 
 
 ## 2.16.18
 
-- Ajoute le diagnostic structurel balises/classes pour finaliser le parseur des opérations BoursoBank.
+- Ajoute une trace structurelle HTML limitée aux balises/classes autour d’une opération BoursoBank, sans contenu financier.
 
 
 ## 2.16.17
 
-- Corrige l’association des dates aux opérations BoursoBank et fiabilise la publication du backend.
+- Publie le parseur structurel des dates BoursoBank et fiabilise le workflow de publication du backend.
 
 
 ## 2.16.16
 
-- Restaure le diagnostic détaillé des lignes BoursoBank incomplètes.
+- Corrige l’association des séparateurs de date aux opérations BoursoBank et importe explicitement le parseur de montants.
+
+
+## 2.16.16
+
+- Restaure effectivement le diagnostic structurel des lignes BoursoBank incomplètes dans l’image publiée.
 
 
 ## 2.16.15
 
-- Ajoute le diagnostic structurel sûr des lignes d’opérations BoursoBank incomplètes.
+- Republie le diagnostic structurel des lignes d’opérations BoursoBank avec le workflow de publication corrigé.
+
+
+## 2.16.14
+
+- Ajoute un diagnostic structurel sûr pour identifier les lignes BoursoBank incomplètes sans exposer les données bancaires.
 
 
 ## 2.16.13
 
-- Corrige la lecture des séparateurs de dates dans l’historique BoursoBank.
+- Corrige le parseur de dates BoursoBank : les séparateurs décoratifs ne sont plus interprétés comme des dates.
 
 
 ## 2.16.12
 
-- Ajoute le test local en lecture seule du parseur des opérations BoursoBank comptabilisées.
+- Ajoute une prévisualisation en lecture seule des opérations BoursoBank comptabilisées, sans écriture en base ni exposition des libellés/montants.
 
 
 ## 2.16.11
 
-- Complète le diagnostic anonymisé nécessaire au parseur des opérations BoursoBank.
+- Ajoute les formes anonymisées des dates/montants et le schéma interne des lignes d’opérations BoursoBank.
 
 
 ## 2.16.10
 
-- Étend le diagnostic anonymisé de l’historique BoursoBank pour préparer le parseur des opérations.
+- Étend le diagnostic anonymisé pour identifier les attributs structurels des lignes d’opérations BoursoBank.
 
 
 ## 2.16.9
 
-- Ajoute le diagnostic local sécurisé de la structure d’historique BoursoBank.
+- Ajoute un diagnostic local, en lecture seule et anonymisé, pour identifier la structure actuelle de l’historique BoursoBank.
 
 
 ## 2.16.8
 
-- Publie l’image ARM64 GHCR vérifiée contenant le correctif du parseur BoursoBank.
+- Corrige le Dockerfile et publie une image ARM64 propre contenant le correctif du parseur BoursoBank.
+
+
+## 2.16.7
+
+- Republie le correctif BoursoBank dans une nouvelle image ARM64 GHCR vérifiable.
 
 
 ## 2.16.6
 
-- Force une image propre du parseur BoursoBank après l’incohérence observée en 2.16.5.
+- Force une reconstruction propre du parseur BoursoBank et vérifie ses symboles pendant le build Docker.
+- Republie explicitement l’image ARM64 2.16.6 sur GHCR après l’échec du premier build.
 
 
 ## 2.16.5
 
-- Corrige la lecture des cartes de comptes du nouveau HTML BoursoBank.
+- Corrige le parsing des cartes de comptes BoursoBank lorsque les sections contiennent des éléments HTML imbriqués.
+- Conserve le contrôle strict de complétude avant import.
 
 
 ## 2.16.4
 
-- Supprime le double slash Ingress et sert l’interface Bourso à la racine sécurisée Home Assistant.
+- Sert l’interface Bourso directement à la racine Ingress et supprime le point d’entrée personnalisé qui produisait un double slash.
 
 
 ## 2.16.3
 
-- Corrige l’ouverture de l’interface BoursoBank via Home Assistant Ingress et renforce la validation de l’origine Supervisor.
+- Corrige le point d’entrée et l’identification utilisateur Home Assistant Ingress.
+- Restreint l’interface Bourso à l’adresse Supervisor Ingress 172.30.32.2.
 
 
 ## 2.16.2
 
-- Ajoute l’interface locale BoursoBank protégée par Home Assistant Ingress et CSRF ; les identifiants ne transitent pas par Vercel.
+- Publie l’interface BoursoBank locale Ingress après validation de compilation.
+
+
+## 2.16.1
+
+- Corrige la compilation de l’interface locale Home Assistant Ingress.
+
+
+## 2.16.0
+
+- Ajoute une interface BoursoBank locale via Home Assistant Ingress.
+- Les identifiants bancaires ne transitent plus par Vercel.
+- Protège les actions locales par contexte Ingress et jeton CSRF HttpOnly.
 
 
 ## 2.15.2
 
-- Corrige le démarrage du connecteur BoursoBank sécurisé et ajoute un contrôle d’import Python au build.
+- Corrige le démarrage du connecteur BoursoBank après le durcissement des sessions.
+- Ajoute un smoke test Python au build Docker pour empêcher la publication d’un connecteur non importable.
 
 
 ## 2.15.1
 
-- Durcissement complet du flux BoursoBank : identifiants réservés au chemin local, cookies de banque confinés au connecteur et validation stricte des hôtes BoursoBank.
+- Corrige le packaging ARM64 des dépendances Python figées du connecteur BoursoBank.
+
+
+## 2.15.0
+
+- Durcissement BoursoBank : cookies conservés uniquement dans le connecteur local et jetons opaques temporaires.
+- Authentification bancaire interdite via Vercel et réservée au chemin local.
+- Validation stricte des hôtes HTTPS BoursoBank et dépendances Python figées.
 
 
 ## 2.14.1
 
-- Administration BoursoBank sécurisée et import des comptes/soldes.
+- Sécurise toutes les routes BoursoBank par session administrateur.
+- Ajoute l’import des comptes et soldes BoursoBank dans GlitteringPrizes.
 
 
 ## 2.14.0
 
-- Ajout du connecteur BoursoBank local et des endpoints REST administrateur pour l’authentification, la validation 2FA et la lecture des comptes.
-- Le service Bourso écoute uniquement sur loopback dans l’image backend.
+- Ajout des endpoints REST administrateur BoursoBank (`login`, validation 2FA, comptes, health).
+- Le connecteur Bourso reste isolé derrière une URL locale configurable `bourso_auth_url`; les identifiants bancaires ne sont ni journalisés ni persistés par GlitteringPrizes.
 
 
 ## 2.13.3
 
-- Correction du module `actual-sync.mjs` sous Node.js : suppression de l'erreur `Illegal return statement` lors du chargement de la liste des comptes Actual Budget.
+- Correction du module ES `actual-sync.mjs` : le mode de liste des comptes s'exécute désormais dans une fonction asynchrone, ce qui rend valide la sortie anticipée et supprime l'erreur `Illegal return statement` sous Node.js.
 
 ## 2.13.2
 
-- La liste de synchronisation individuelle est désormais pilotée directement par Actual Budget.
-- Les comptes reliés à un fournisseur bancaire sont proposés même sans correspondance GlitteringPrizes existante.
-- Les comptes Actual purement manuels sont exclus grâce à `account_sync_source`.
-- La synchronisation individuelle continue de cibler le compte via son identifiant Actual Budget.
+- La liste de synchronisation individuelle reste pilotée par Actual Budget, indépendamment des associations déjà présentes dans GlitteringPrizes.
+- Les métadonnées ActualQL `account_sync_source` sont utilisées pour ne proposer que les comptes réellement reliés à un fournisseur de synchronisation bancaire (dont Enable Banking), au lieu d'inclure les comptes purement manuels.
+- La réponse indique aussi, sans en faire un critère d'inclusion, si chaque compte Actual possède déjà une correspondance GlitteringPrizes via `ExternalId = actual:<ActualAccountId>`.
+- La synchronisation individuelle continue d'utiliser l'identifiant du compte Actual pour appeler `runBankSync({ accountId })`.
+
+## 2.13.1
+
+- La liste de synchronisation individuelle est désormais chargée directement depuis Actual Budget au lieu de dépendre des comptes déjà associés dans GlitteringPrizes.
+- Tous les comptes Actual ouverts sont proposés, y compris ceux qui n'ont pas encore été importés ou associés dans GlitteringPrizes.
+- Le chargement de cette liste n'exécute aucune synchronisation bancaire et ne récupère pas l'historique des transactions.
 
 ## 2.13.0
 
-- Ajout de la synchronisation individuelle d’un compte Actual Budget / Enable Banking depuis l’écran de synchronisation.
-- Une synchronisation ciblée ne déclenche la récupération bancaire que pour le compte sélectionné.
+- Ajout de la synchronisation bancaire individuelle par compte Actual Budget / Enable Banking.
+- Un compte peut désormais déclencher seul `runBankSync`, puis seuls ses transactions et son solde sont importés dans GlitteringPrizes.
+- Ajout d’un endpoint administrateur listant les comptes liés à Actual pour alimenter les commandes de synchronisation individuelle.
 
 ## 2.12.9
 
-- Historique de synchronisation normalisé : seules les opérations réellement nouvelles ou financièrement modifiées sont enregistrées comme changements.
-- Conservation des anciennes et nouvelles valeurs de montant/date pour les modifications.
-- Migration SQLite additive et non destructive ; les anciens snapshots et tout l’historique existant sont conservés.
+- Ajout d’un historique normalisé des synchronisations avec `ActualSyncRuns` et `ActualSyncTransactionChanges`.
+- Chaque synchronisation enregistre explicitement les opérations `NEW` ou `UPDATED`, avec ancien/nouveau montant et ancienne/nouvelle date.
+- Migration SQLite strictement additive : aucune table, transaction, entrée d’audit ou ancien snapshot n’est supprimé ou réécrit.
+- Les anciens `ActualSyncSnapshots` restent conservés et lisibles en compatibilité ; les nouvelles synchronisations utilisent en priorité l’historique normalisé.
 
 ## 2.12.8
 
-- Le détail de synchronisation est limité aux nouvelles opérations et aux changements financiers réels (montant, date ou compte).
-- Les simples rafraîchissements de libellé, catégorie ou référence ne remplissent plus artificiellement le détail avec plusieurs mois d’opérations.
+- Le détail d’une synchronisation ne considère plus les rafraîchissements de métadonnées Actual (libellé, catégorie, référence) comme des opérations modifiées.
+- Une opération existante apparaît désormais dans le détail uniquement si son montant, sa date ou son compte a réellement changé ; les nouvelles opérations restent affichées.
 
 ## 2.12.7
 
-- Le détail d’une synchronisation bancaire affiche uniquement les transactions ajoutées ou modifiées pendant cette synchronisation.
-- Suppression de la reconstruction trompeuse des anciennes synchronisations sans snapshot exact.
+- Le snapshot d’une synchronisation Actual Budget ne conserve désormais que les transactions réellement ajoutées ou modifiées pendant cette synchronisation.
+- Les anciennes synchronisations sans snapshot ne sont plus reconstruites depuis l’état courant de la base, afin de ne pas attribuer de fausses modifications à une synchronisation historique.
 
 ## 2.12.6
 
-- Affichage dans le détail d’un compte de la date de la dernière synchronisation Actual Budget réussie.
-- Compatibilité SQLite conservée pour la récupération de cette date.
+- Le détail d’un compte expose la date de la dernière synchronisation Actual Budget réussie.
+- La recherche de la dernière synchronisation reste compatible SQLite : aucune opération SQL de tri sur `DateTimeOffset`.
 
 ## 2.12.5
 
-- Diagnostic détaillé du chargement des soldes initiaux pour identifier les erreurs SQLite ou de schéma restantes.
+- Ajout d’un diagnostic serveur détaillé sur le chargement des soldes initiaux afin d’identifier précisément les erreurs SQLite ou de schéma restantes.
 
 ## 2.12.4
 

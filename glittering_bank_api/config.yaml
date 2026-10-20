@@ -2,7 +2,7 @@ name: "Glittering Bank API"
 version: "2.18.47"
 slug: "glittering_bank_api"
 description: "API bancaire persistante avec SQLite, passkeys, TOTP et synchronisation Actual Budget"
-url: "https://github.com/philfer/glitteringprizes-ha"
+url: https://github.com/philfer/glitteringprizes-ha
 arch:
   - aarch64
 startup: application
@@ -30,6 +30,7 @@ options:
   actual_lookback_days: 120
   actual_run_bank_sync: true
   bourso_auth_url: "http://127.0.0.1:8001"
+  ha_ingress_trusted_proxies: ""
 schema:
   api_key: password
   activation_code: password?
@@ -42,3 +43,4 @@ schema:
   actual_lookback_days: int
   actual_run_bank_sync: bool
   bourso_auth_url: str
+  ha_ingress_trusted_proxies: str?
