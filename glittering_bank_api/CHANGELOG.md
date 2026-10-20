@@ -1,3 +1,8 @@
+## 2.18.46
+
+- Corrige le crash SQLite au démarrage (`near "@p0": syntax error`) dans la création des tables de détails de comptes : les noms de tables ne sont plus paramétrés.
+- Conserve la base SQLite et les données bancaires existantes, sans réinitialisation.
+
 ## 2.18.45
 
 - Intègre les évolutions de la PR #149 : architecture modulaire des connecteurs BoursoBank et Actual Budget et contrats partagés.
