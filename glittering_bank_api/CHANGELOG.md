@@ -1,3 +1,7 @@
+## 2.18.48
+
+- fix pour 2.18.48
+
 ## 2.18.47
 
 - Corrige le plantage au démarrage de Home Assistant (`SQLite Error 1: near "@p0"`) : les noms de tables de la migration SQLite sont désormais intégrés à la requête SQL au lieu d'être passés comme paramètres.
