@@ -1,3 +1,10 @@
+## 2.58.60
+
+- Ajout d'une sauvegarde téléchargeable de la base SQLite depuis Administration > Système dans GlitteringPrizes.
+- Nouvelle API `GET /api/admin/database/download` réservée aux administrateurs authentifiés : instantané SQLite cohérent, transfert sans cache et suppression du fichier temporaire.
+- Ajout des identifiants de fournisseurs pour déclencher indépendamment la synchronisation BoursoBank ou Actual Budget.
+- Aucun changement destructif des données existantes.
+
 ## 2.58.59
 
 - N/A
